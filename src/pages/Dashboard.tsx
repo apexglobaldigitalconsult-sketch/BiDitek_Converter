@@ -4,6 +4,8 @@ import { motion } from 'motion/react';
 import { cn } from '@/src/lib/utils';
 import { Link } from 'react-router-dom';
 
+import ScientificCalculator from '../components/ScientificCalculator';
+
 const popularTools = [
   {
     title: 'Image Converter',
@@ -62,68 +64,85 @@ export default function Dashboard() {
   return (
     <div className="space-y-24 pb-24">
       {/* Hero Section */}
-      <section className="px-6 lg:px-12 pt-16 lg:pt-24 text-center max-w-5xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 bg-surface-container-low px-4 py-1.5 rounded-full border border-outline-variant mb-8 shadow-sm"
-        >
-          <span className="w-2 h-2 bg-secondary rounded-full" />
-          <span className="text-primary/60 font-label text-[10px] font-black tracking-wide uppercase">200+ Tools Available</span>
-        </motion.div>
+      <section className="px-6 lg:px-12 pt-12 lg:pt-20 max-w-7xl mx-auto w-full">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+          <div className="lg:w-1/2 text-center lg:text-left">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 bg-surface-container-low px-4 py-1.5 rounded-full border border-outline-variant mb-8 shadow-sm"
+            >
+              <span className="w-2 h-2 bg-secondary rounded-full" />
+              <span className="text-primary/60 font-label text-[10px] font-black tracking-wide uppercase">200+ Tools Available</span>
+            </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-headline font-semibold text-primary leading-[1.1] mb-8 tracking-tighter"
-        >
-          All-in-One Converter <br />
-          & <span className="text-secondary">Calculator</span>
-        </motion.h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-headline font-semibold text-primary leading-[1.1] mb-8 tracking-tighter"
+            >
+              All-in-One Converter <br />
+              & <span className="text-secondary">Calculator</span>
+            </motion.h1>
 
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-lg md:text-xl text-primary/50 font-body max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          Fast, simple tools that work directly in your browser. No ads, no tracking, just pure utility.
-        </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-lg text-primary/50 font-body max-w-2xl mx-auto lg:mx-0 mb-12 leading-relaxed"
+            >
+              Fast, simple tools that work directly in your browser. No ads, no tracking, just pure utility.
+            </motion.p>
 
-        {/* Search Bar */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="relative max-w-3xl mx-auto"
-        >
-          <div className="flex p-1.5 bg-surface-container-low rounded-full border border-outline-variant shadow-sm focus-within:ring-4 focus-within:ring-secondary/5 transition-all">
-            <div className="flex-1 flex items-center px-6">
-              <Search className="w-5 h-5 text-primary/40 mr-4" />
-              <input 
-                type="text" 
-                placeholder="Search for any tool..."
-                className="w-full bg-transparent border-none focus:ring-0 py-3 text-lg font-body placeholder:text-primary/40 text-primary"
-              />
+            {/* Search Bar */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="relative max-w-3xl mx-auto lg:mx-0"
+            >
+              <div className="flex p-1.5 bg-surface-container-low rounded-full border border-outline-variant shadow-sm focus-within:ring-4 focus-within:ring-secondary/5 transition-all">
+                <div className="flex-1 flex items-center px-6">
+                  <Search className="w-5 h-5 text-primary/40 mr-4" />
+                  <input 
+                    type="text" 
+                    placeholder="Search for any tool..."
+                    className="w-full bg-transparent border-none focus:ring-0 py-3 text-lg font-body placeholder:text-primary/40 text-primary"
+                  />
+                </div>
+                <button className="bg-secondary text-white px-10 py-3 rounded-full font-headline font-bold hover:opacity-90 transition-all">
+                  Search
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Stats Row */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-8 lg:gap-12 mt-12 font-label text-[10px] lg:text-xs font-bold text-primary/40">
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-secondary" /> 200+ Tools
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-secondary" /> 10+ Categories
+              </div>
+              <div className="flex items-center gap-2">
+                <Check className="w-4 h-4 text-secondary" /> 100% Free
+              </div>
             </div>
-            <button className="bg-secondary text-white px-10 py-3 rounded-full font-headline font-bold hover:opacity-90 transition-all">
-              Search
-            </button>
           </div>
-        </motion.div>
 
-        {/* Stats Row */}
-        <div className="flex flex-wrap justify-center gap-8 lg:gap-12 mt-12 font-label text-[10px] lg:text-xs font-bold text-primary/40">
-          <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-secondary" /> 200+ Tools
-          </div>
-          <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-secondary" /> 10+ Categories
-          </div>
-          <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-secondary" /> 100% Free
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="lg:w-1/2 w-full"
+          >
+            <div className="mb-4 flex items-center justify-between px-2">
+              <h3 className="text-xs font-black uppercase tracking-widest text-primary/40">Quick Scientific Calc</h3>
+              <Link to="/calculators/scientific" className="text-[10px] font-bold text-secondary hover:underline">Full Screen</Link>
+            </div>
+            <ScientificCalculator />
+          </motion.div>
         </div>
       </section>
 

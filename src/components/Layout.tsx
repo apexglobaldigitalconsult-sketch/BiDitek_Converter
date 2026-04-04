@@ -44,14 +44,76 @@ export default function Layout({ children }: LayoutProps) {
     { name: 'Unit Converter', path: '/converters' },
   ];
 
-  const calculatorsItems = [
-    { name: 'Basic & Math', path: '/calculators' },
-    { name: 'Finance', path: '/calculators' },
-    { name: 'Health', path: '/calculators' },
-    { name: 'Everyday', path: '/calculators' },
-    { name: 'Tech', path: '/calculators' },
-    { name: 'Engineering', path: '/calculators' },
+  const calculatorsCategories = [
+    {
+      name: 'Financial',
+      items: [
+        { name: 'Mortgage Calculator', path: '/calculators/mortgage' },
+        { name: 'Loan Calculator', path: '/calculators/loan' },
+        { name: 'Auto Loan Calculator', path: '/calculators/auto-loan' },
+        { name: 'Interest Calculator', path: '/calculators/interest' },
+        { name: 'Payment Calculator', path: '/calculators/payment' },
+        { name: 'Retirement Calculator', path: '/calculators/retirement' },
+        { name: 'Amortization Calculator', path: '/calculators/amortization' },
+        { name: 'Investment Calculator', path: '/calculators/investment' },
+        { name: 'Inflation Calculator', path: '/calculators/inflation' },
+        { name: 'Finance Calculator', path: '/calculators/finance' },
+        { name: 'Income Tax Calculator', path: '/calculators/income-tax' },
+        { name: 'Compound Interest Calculator', path: '/calculators/compound-interest' },
+        { name: 'Salary Calculator', path: '/calculators/salary' },
+        { name: 'Interest Rate Calculator', path: '/calculators/interest-rate' },
+        { name: 'Sales Tax Calculator', path: '/calculators/sales-tax' },
+      ]
+    },
+    {
+      name: 'Fitness & Health',
+      items: [
+        { name: 'BMI Calculator', path: '/calculators/bmi' },
+        { name: 'Calorie Calculator', path: '/calculators/calorie' },
+        { name: 'Body Fat Calculator', path: '/calculators/body-fat' },
+        { name: 'BMR Calculator', path: '/calculators/bmr' },
+        { name: 'Ideal Weight Calculator', path: '/calculators/ideal-weight' },
+        { name: 'Pace Calculator', path: '/calculators/pace' },
+        { name: 'Pregnancy Calculator', path: '/calculators/pregnancy' },
+        { name: 'Pregnancy Conception', path: '/calculators/conception' },
+        { name: 'Due Date Calculator', path: '/calculators/due-date' },
+      ]
+    },
+    {
+      name: 'Math',
+      items: [
+        { name: 'Scientific Calculator', path: '/calculators/scientific' },
+        { name: 'Fraction Calculator', path: '/calculators/fraction' },
+        { name: 'Percentage Calculator', path: '/calculators/percentage' },
+        { name: 'Random Number Generator', path: '/calculators/random' },
+        { name: 'Triangle Calculator', path: '/calculators/triangle' },
+        { name: 'Standard Deviation', path: '/calculators/std-dev' },
+      ]
+    },
+    {
+      name: 'Other',
+      items: [
+        { name: 'Age Calculator', path: '/calculators/age' },
+        { name: 'Date Calculator', path: '/calculators/date' },
+        { name: 'Time Calculator', path: '/calculators/time' },
+        { name: 'Hours Calculator', path: '/calculators/hours' },
+        { name: 'GPA Calculator', path: '/calculators/gpa' },
+        { name: 'Grade Calculator', path: '/calculators/grade' },
+        { name: 'Concrete Calculator', path: '/calculators/concrete' },
+        { name: 'Subnet Calculator', path: '/calculators/subnet' },
+        { name: 'Password Generator', path: '/calculators/password' },
+        { name: 'Conversion Calculator', path: '/calculators/conversion' },
+      ]
+    }
   ];
+
+  const [openCategories, setOpenCategories] = React.useState<string[]>(['Financial', 'Fitness & Health', 'Math', 'Other']);
+
+  const toggleCategory = (name: string) => {
+    setOpenCategories(prev => 
+      prev.includes(name) ? prev.filter(c => c !== name) : [...prev, name]
+    );
+  };
 
   return (
     <div className="min-h-screen flex flex-col max-w-[1920px] mx-auto bg-background text-primary transition-colors duration-300">
@@ -173,19 +235,41 @@ export default function Layout({ children }: LayoutProps) {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden"
                   >
-                    {calculatorsItems.map((item) => (
-                      <NavLink
-                        key={item.name}
-                        to={item.path}
-                        className={({ isActive }) =>
-                          cn(
-                            "flex items-center pl-14 py-2.5 text-xs font-medium transition-all relative",
-                            isActive ? "text-secondary font-bold after:absolute after:left-12 after:w-1 after:h-1 after:bg-secondary after:rounded-full" : "text-primary/50 hover:text-secondary"
-                          )
-                        }
-                      >
-                        {item.name}
-                      </NavLink>
+                    {calculatorsCategories.map((category) => (
+                      <div key={category.name} className="mb-1">
+                        <button 
+                          onClick={() => toggleCategory(category.name)}
+                          className="w-full flex items-center justify-between pl-14 pr-6 py-2 text-[11px] font-black uppercase tracking-widest text-primary/40 hover:text-primary transition-colors"
+                        >
+                          {category.name}
+                          {openCategories.includes(category.name) ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                        </button>
+                        <AnimatePresence initial={false}>
+                          {openCategories.includes(category.name) && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              className="overflow-hidden"
+                            >
+                              {category.items.map((item) => (
+                                <NavLink
+                                  key={item.name}
+                                  to={item.path}
+                                  className={({ isActive }) =>
+                                    cn(
+                                      "flex items-center pl-16 py-1.5 text-[11px] font-medium transition-all relative",
+                                      isActive ? "text-secondary font-bold after:absolute after:left-14 after:w-1 after:h-1 after:bg-secondary after:rounded-full" : "text-primary/50 hover:text-secondary"
+                                    )
+                                  }
+                                >
+                                  {item.name}
+                                </NavLink>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
                     ))}
                   </motion.div>
                 )}

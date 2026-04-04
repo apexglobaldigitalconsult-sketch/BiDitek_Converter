@@ -6,41 +6,50 @@ import { Link } from 'react-router-dom';
 
 const calculatorGroups = [
   {
-    title: 'Basic & Math',
-    subtitle: 'Foundational Computation',
-    color: 'border-secondary-container',
-    items: [
-      { title: 'Scientific Calculator', desc: 'Advanced functions for complex mathematical operations and equations.', icon: Calculator, emoji: '🧮' },
-      { title: 'Percentage Calculator', desc: 'Instantly calculate increases, decreases, and relative differences.', icon: Percent, emoji: '📉' },
-      { title: 'Probability Tool', desc: 'Statistical analysis and random event probability distribution models.', icon: Dice5, emoji: '🎲' },
-    ]
-  },
-  {
-    title: 'Finance',
+    title: 'Financial Calculators',
     subtitle: 'Capital & Investment',
-    color: 'border-primary',
-    items: [
-      { title: 'Mortgage Calculator', desc: 'Plan your home purchase with detailed amortization schedules.', icon: Home, emoji: '🏠' },
-      { title: 'Compound Interest', desc: 'Visualize long-term wealth growth and investment forecasting.', icon: TrendingUp, emoji: '📈' },
-      { title: 'Salary After Tax', desc: 'Calculate take-home pay based on regional tax regulations.', icon: Banknote, emoji: '💸' },
-    ]
-  },
-  {
-    title: 'Health',
-    subtitle: 'Biometric Analysis',
-    color: 'border-blue-500',
-    items: [
-      { title: 'BMI Calculator', desc: 'Determine Body Mass Index and healthy weight ranges for adults.', icon: Scale, emoji: '⚖️', path: '/calculators/bmi' },
-      { title: 'Calorie Deficit', desc: 'Estimate daily energy expenditure for weight management goals.', icon: Flame, emoji: '🔥' },
-    ]
-  },
-  {
-    title: 'Tech & Engineering',
-    subtitle: 'System Logic',
     color: 'border-secondary',
     items: [
-      { title: 'Subnet Calculator', desc: 'Comprehensive IPv4/IPv6 subnetting and mask generation tool.', icon: Globe, emoji: '🌐' },
-      { title: 'Hash Generator', desc: 'Generate SHA-256, MD5, and other cryptographic hashes instantly.', icon: Hash, emoji: '⛓️' },
+      { title: 'Mortgage Calculator', desc: 'Plan your home purchase with detailed amortization schedules.', emoji: '🏠' },
+      { title: 'Loan Calculator', desc: 'Calculate monthly payments and interest for any loan.', emoji: '💸' },
+      { title: 'Auto Loan Calculator', desc: 'Estimate monthly car payments and total interest.', emoji: '🚗' },
+      { title: 'Interest Calculator', desc: 'Calculate simple or compound interest on savings.', emoji: '💰' },
+      { title: 'Compound Interest', desc: 'Visualize long-term wealth growth and investment forecasting.', emoji: '📈', path: '/calculators/compound-interest' },
+      { title: 'Salary Calculator', desc: 'Calculate take-home pay based on regional tax regulations.', emoji: '💼' },
+    ]
+  },
+  {
+    title: 'Fitness & Health Calculators',
+    subtitle: 'Biometric Analysis',
+    color: 'border-orange-600',
+    items: [
+      { title: 'BMI Calculator', desc: 'Determine Body Mass Index and healthy weight ranges.', emoji: '⚖️', path: '/calculators/bmi' },
+      { title: 'Calorie Calculator', desc: 'Estimate daily energy expenditure for weight management.', emoji: '🔥' },
+      { title: 'Body Fat Calculator', desc: 'Calculate body fat percentage based on measurements.', emoji: '📏' },
+      { title: 'BMR Calculator', desc: 'Find your Basal Metabolic Rate for calorie planning.', emoji: '⚡' },
+      { title: 'Ideal Weight', desc: 'Find your recommended weight based on height and frame.', emoji: '🌟' },
+    ]
+  },
+  {
+    title: 'Math Calculators',
+    subtitle: 'Foundational Computation',
+    color: 'border-blue-600',
+    items: [
+      { title: 'Scientific Calculator', desc: 'Advanced functions for complex mathematical operations.', emoji: '🧮' },
+      { title: 'Fraction Calculator', desc: 'Perform operations with fractions and mixed numbers.', emoji: '➗' },
+      { title: 'Percentage Calculator', desc: 'Instantly calculate increases, decreases, and differences.', emoji: '📉' },
+      { title: 'Random Number', desc: 'Generate random numbers within a specified range.', emoji: '🎲' },
+    ]
+  },
+  {
+    title: 'Other Calculators',
+    subtitle: 'General Utility',
+    color: 'border-primary',
+    items: [
+      { title: 'Age Calculator', desc: 'Find out your exact age in years, months, and days.', emoji: '🎂' },
+      { title: 'Date Calculator', desc: 'Calculate the duration between two specific dates.', emoji: '📅' },
+      { title: 'GPA Calculator', desc: 'Calculate your Grade Point Average for school or college.', emoji: '🎓' },
+      { title: 'Subnet Calculator', desc: 'IPv4/IPv6 subnetting and mask generation tool.', emoji: '🌐' },
     ]
   }
 ];
