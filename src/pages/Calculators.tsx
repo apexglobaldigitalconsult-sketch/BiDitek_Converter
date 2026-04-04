@@ -52,7 +52,7 @@ export default function Calculators() {
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-6xl md:text-8xl font-headline font-extrabold text-primary mb-8 tracking-tighter leading-[0.9]"
+          className="text-3xl md:text-4xl lg:text-5xl font-headline font-semibold text-primary mb-8 tracking-tighter leading-[1.1]"
         >
           Precision <br /><span className="text-secondary">Calculators.</span>
         </motion.h1>
@@ -60,7 +60,7 @@ export default function Calculators() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-xl lg:text-2xl text-primary/50 font-body max-w-2xl leading-relaxed"
+          className="text-xl text-primary/50 font-body max-w-2xl leading-relaxed"
         >
           A curated collection of professional-grade tools for financial modeling, health metrics, and technical engineering. Engineered for clarity.
         </motion.p>
@@ -69,9 +69,9 @@ export default function Calculators() {
       <div className="space-y-32">
         {calculatorGroups.map((group, gIdx) => (
           <section key={group.title}>
-            <div className={cn("border-l-8 pl-8 mb-12", group.color)}>
-              <h2 className="text-4xl lg:text-5xl font-headline font-bold text-primary tracking-tight">{group.title}</h2>
-              <p className="font-label text-sm text-primary/40 uppercase tracking-[0.3em] font-black mt-2">{group.subtitle}</p>
+            <div className={cn("border-l-4 pl-8 mb-12", group.color)}>
+              <h2 className="text-3xl lg:text-4xl font-headline font-bold text-primary tracking-tight">{group.title}</h2>
+              <p className="font-label text-xs text-primary/40 uppercase tracking-[0.3em] font-black mt-2">{group.subtitle}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -81,7 +81,7 @@ export default function Calculators() {
                   <CardWrapper
                     key={item.title}
                     to={item.path || '#'}
-                    className="group bg-surface-container-low rounded-[1px] p-10 hover:bg-white transition-all duration-500 hover:-translate-y-2 editorial-shadow cursor-pointer block"
+                    className="group bg-surface-container-low rounded-[1px] p-10 border border-outline-variant/30 hover:border-secondary/40 transition-all duration-500 hover:-translate-y-2 shadow-sm cursor-pointer block"
                   >
                     <div className="text-5xl mb-8 group-hover:scale-110 transition-transform origin-left">{item.emoji}</div>
                     <h3 className="text-2xl font-headline font-bold mb-4 text-primary tracking-tight">{item.title}</h3>

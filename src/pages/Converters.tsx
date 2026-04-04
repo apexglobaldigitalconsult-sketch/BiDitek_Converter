@@ -11,7 +11,7 @@ export default function Converters() {
     <div className="px-6 lg:px-16 py-12 lg:py-20">
       <div className="mb-16">
         <span className="font-label text-xs tracking-[0.2em] uppercase text-secondary font-bold">Utility Hub</span>
-        <h1 className="font-headline text-6xl lg:text-8xl font-extrabold tracking-tighter text-primary mt-2">Converters</h1>
+        <h1 className="font-headline text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-primary mt-2">Converters</h1>
       </div>
 
       {/* Tab Switcher */}
@@ -37,16 +37,16 @@ export default function Converters() {
           {/* Main File Converter Zone */}
           <div className="col-span-12 lg:col-span-8 space-y-10">
             {/* Drag & Drop */}
-            <div className="group relative rounded-[1px] bg-surface-container-low p-16 text-center border-2 border-dashed border-surface-container-highest/50 hover:border-secondary/40 transition-all cursor-pointer">
+            <div className="group relative rounded-[1px] bg-surface-container-low p-16 text-center border-2 border-dashed border-outline-variant/30 hover:border-secondary/40 transition-all cursor-pointer">
               <div className="flex flex-col items-center space-y-8">
-                <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center text-secondary editorial-shadow group-hover:scale-110 transition-transform">
+                <div className="w-24 h-24 rounded-full bg-surface-container flex items-center justify-center text-secondary shadow-sm group-hover:scale-110 transition-transform">
                   <Upload className="w-10 h-10" />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-3xl font-headline font-bold tracking-tight">Drag & drop your file here</h3>
                   <p className="text-primary/40 font-body text-lg">Supports PDF, DOCX, JPG, PNG and 100+ more</p>
                 </div>
-                <button className="bg-secondary text-white px-12 py-5 rounded-[1px] font-headline font-bold text-xl hover:bg-primary transition-all">
+                <button className="bg-secondary text-white px-12 py-5 rounded-full font-headline font-bold text-xl hover:opacity-90 transition-all">
                   Browse Files
                 </button>
               </div>
@@ -56,10 +56,10 @@ export default function Converters() {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-surface-container-highest/50 rounded-[1px] p-6 flex items-center justify-between editorial-shadow"
+              className="bg-surface-container rounded-[1px] p-6 flex items-center justify-between border border-outline-variant/30 shadow-sm"
             >
               <div className="flex items-center gap-6">
-                <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-primary">
+                <div className="w-14 h-14 bg-surface-container-low rounded-xl flex items-center justify-center text-primary border border-outline-variant/10">
                   <FileText className="w-8 h-8" />
                 </div>
                 <div>
@@ -67,32 +67,32 @@ export default function Converters() {
                   <p className="text-sm text-primary/40 font-label">2.4 MB</p>
                 </div>
               </div>
-              <button className="p-3 hover:bg-red-50 hover:text-red-600 rounded-full transition-colors">
+              <button className="p-3 hover:bg-red-500/10 hover:text-red-500 rounded-full transition-colors">
                 <X className="w-6 h-6" />
               </button>
             </motion.div>
 
             {/* Format Controls */}
-            <div className="bg-surface-container rounded-[1px] p-10">
+            <div className="bg-surface-container-low rounded-[1px] p-10 border border-outline-variant/30">
               <div className="grid grid-cols-1 md:grid-cols-11 gap-8 items-center">
                 <div className="md:col-span-4 space-y-3">
                   <label className="block text-[10px] font-label font-black uppercase tracking-[0.2em] text-primary/30 pl-4">From</label>
                   <div className="relative">
-                    <select className="w-full appearance-none bg-white border-none rounded-[1px] px-8 py-5 font-headline font-bold text-lg focus:ring-4 focus:ring-secondary/5">
+                    <select className="w-full appearance-none bg-surface-container border-none rounded-[1px] px-8 py-5 font-headline font-bold text-lg focus:ring-4 focus:ring-secondary/5 text-primary">
                       <option>PDF (Document)</option>
                       <option>DOCX (Word)</option>
                     </select>
                   </div>
                 </div>
                 <div className="md:col-span-3 flex justify-center">
-                  <button className="w-16 h-16 rounded-[1px] bg-primary text-white flex items-center justify-center hover:rotate-180 transition-transform duration-700 editorial-shadow">
+                  <button className="w-16 h-16 rounded-full bg-primary text-background flex items-center justify-center hover:rotate-180 transition-transform duration-700 shadow-md">
                     <Repeat className="w-8 h-8" />
                   </button>
                 </div>
                 <div className="md:col-span-4 space-y-3">
                   <label className="block text-[10px] font-label font-black uppercase tracking-[0.2em] text-primary/30 pl-4">To</label>
                   <div className="relative">
-                    <select className="w-full appearance-none bg-white border-none rounded-[1px] px-8 py-5 font-headline font-bold text-lg focus:ring-4 focus:ring-secondary/5">
+                    <select className="w-full appearance-none bg-surface-container border-none rounded-[1px] px-8 py-5 font-headline font-bold text-lg focus:ring-4 focus:ring-secondary/5 text-primary">
                       <option>DOCX (Word)</option>
                       <option>PDF (Document)</option>
                       <option>JPEG (Image)</option>
@@ -104,10 +104,10 @@ export default function Converters() {
 
             {/* Actions */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <button className="bg-secondary text-white py-6 rounded-[1px] font-headline font-bold text-2xl hover:scale-[0.99] transition-transform editorial-shadow">
+              <button className="bg-secondary text-white py-6 rounded-[1px] font-headline font-bold text-2xl hover:opacity-90 transition-all shadow-xl shadow-secondary/10">
                 Convert File
               </button>
-              <button className="border-2 border-primary text-primary py-6 rounded-[1px] font-headline font-bold text-2xl hover:bg-primary hover:text-white transition-all">
+              <button className="border-2 border-primary text-primary py-6 rounded-[1px] font-headline font-bold text-2xl hover:bg-primary hover:text-background transition-all">
                 Download File
               </button>
             </div>
@@ -115,7 +115,7 @@ export default function Converters() {
 
           {/* Sidebar Info */}
           <div className="col-span-12 lg:col-span-4 space-y-10">
-            <div className="bg-white rounded-[1px] p-12 editorial-shadow">
+            <div className="bg-surface-container-low rounded-[1px] p-12 border border-outline-variant/30 shadow-sm">
               <h4 className="font-headline font-bold text-3xl mb-10 tracking-tight">Quick Units</h4>
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -126,7 +126,7 @@ export default function Converters() {
                 ].map((unit) => (
                   <button 
                     key={unit.name}
-                    className="flex flex-col items-center p-6 rounded-[1px] bg-surface-container-low hover:bg-secondary/10 transition-all group"
+                    className="flex flex-col items-center p-6 rounded-[1px] bg-surface-container hover:bg-secondary/10 transition-all group"
                   >
                     <unit.icon className="w-8 h-8 text-secondary mb-3 group-hover:scale-110 transition-transform" />
                     <span className="font-label text-[10px] font-black uppercase tracking-widest">{unit.name}</span>
@@ -154,11 +154,11 @@ export default function Converters() {
       ) : (
         <div className="space-y-20">
           <div className="text-center max-w-3xl mx-auto space-y-6">
-            <h2 className="font-headline text-5xl lg:text-7xl font-extrabold tracking-tighter">Precise Unit Alchemy</h2>
-            <p className="text-primary/50 text-xl font-body">Shift between systems with surgical precision using our editorial-grade unit engine.</p>
+            <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter">Precise Unit Alchemy</h2>
+            <p className="text-primary/50 text-xl font-body">Shift between systems with surgical precision using our professional-grade unit engine.</p>
           </div>
 
-          <div className="bg-surface-container-low rounded-[1px] p-12 lg:p-20">
+          <div className="bg-surface-container-low rounded-[1px] p-12 lg:p-20 border border-outline-variant/30">
             {/* Category Pills */}
             <div className="flex flex-wrap justify-center gap-4 mb-20">
               {['Length', 'Weight', 'Temp', 'Speed', 'Volume'].map((cat) => (
@@ -166,10 +166,10 @@ export default function Converters() {
                   key={cat}
                   onClick={() => setUnitCategory(cat)}
                   className={cn(
-                    "px-10 py-4 rounded-[1px] font-headline font-bold text-sm uppercase tracking-widest transition-all",
+                    "px-10 py-4 rounded-full font-headline font-bold text-sm uppercase tracking-widest transition-all",
                     unitCategory === cat 
                       ? "bg-secondary text-white shadow-lg shadow-secondary/20" 
-                      : "bg-white text-primary/30 hover:text-primary"
+                      : "bg-surface-container text-primary/30 hover:text-primary"
                   )}
                 >
                   {cat}
@@ -230,7 +230,7 @@ export default function Converters() {
             </div>
 
             {/* Reference Scale */}
-            <div className="mt-24 pt-16 border-t border-surface-container-highest/50">
+            <div className="mt-24 pt-16 border-t border-outline-variant/30">
               <h5 className="font-headline font-bold text-2xl mb-10 tracking-tight">Reference Scale</h5>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
@@ -238,7 +238,7 @@ export default function Converters() {
                   { from: '1 km', to: '0.62 mi' },
                   { from: '1 in', to: '2.54 cm' },
                 ].map((ref, i) => (
-                  <div key={i} className="p-8 bg-white rounded-[1px] flex items-center justify-between editorial-shadow group hover:bg-secondary transition-all duration-500">
+                  <div key={i} className="p-8 bg-surface-container rounded-[1px] flex items-center justify-between border border-outline-variant/10 group hover:bg-secondary transition-all duration-500 shadow-sm">
                     <span className="text-primary/40 font-bold text-lg group-hover:text-white/60 transition-colors">{ref.from}</span>
                     <ArrowRight className="w-6 h-6 text-secondary group-hover:text-white transition-all" />
                     <span className="font-headline font-bold text-xl group-hover:text-white transition-colors">{ref.to}</span>

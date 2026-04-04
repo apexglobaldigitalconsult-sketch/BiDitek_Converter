@@ -1,17 +1,23 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { 
-  Settings, 
-  UserCircle, 
-  ArrowRight, 
   Search, 
-  HelpCircle,
   Repeat,
   Calculator,
   Menu,
   X,
   Sun,
-  Moon
+  Moon,
+  ChevronDown,
+  ChevronUp,
+  HeartPulse,
+  Ruler,
+  Wallet,
+  Cake,
+  FileText,
+  DollarSign,
+  Divide,
+  Monitor
 } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
@@ -30,54 +36,62 @@ export default function Layout({ children }: LayoutProps) {
     { name: 'Calculators', path: '/calculators', icon: Calculator },
   ];
 
+  const [isConvertersOpen, setIsConvertersOpen] = React.useState(true);
+  const [isCalculatorsOpen, setIsCalculatorsOpen] = React.useState(true);
+
+  const convertersItems = [
+    { name: 'File Converter', path: '/converters' },
+    { name: 'Unit Converter', path: '/converters' },
+  ];
+
+  const calculatorsItems = [
+    { name: 'Basic & Math', path: '/calculators' },
+    { name: 'Finance', path: '/calculators' },
+    { name: 'Health', path: '/calculators' },
+    { name: 'Everyday', path: '/calculators' },
+    { name: 'Tech', path: '/calculators' },
+    { name: 'Engineering', path: '/calculators' },
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col max-w-[1920px] mx-auto bg-background">
+    <div className="min-h-screen flex flex-col max-w-[1920px] mx-auto bg-background text-primary transition-colors duration-300">
       {/* Top Navigation Bar */}
-      <header className="w-full sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-surface-container-highest/50 h-20 flex items-center justify-between px-6 lg:px-12">
+      <header className="w-full sticky top-0 z-50 bg-surface-container-low border-b border-outline-variant h-16 flex items-center justify-between px-6 lg:px-8">
         <div className="flex items-center gap-12">
-          <Link to="/" className="text-2xl font-headline font-extrabold tracking-tight text-primary">
-            BiDitek Converter
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="bg-secondary p-1.5 rounded-[1px]">
+              <Repeat className="w-5 h-5 text-white" />
+            </div>
+            <span className="text-xl font-headline font-extrabold tracking-tight text-primary">
+              BiDitek <span className="text-secondary">Converter</span>
+            </span>
           </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  cn(
-                    "font-headline font-bold text-lg transition-all relative py-1",
-                    isActive 
-                      ? "text-secondary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-secondary" 
-                      : "text-primary/40 hover:text-secondary"
-                  )
-                }
-              >
-                {item.name}
-              </NavLink>
-            ))}
-          </nav>
         </div>
 
-        <div className="flex items-center gap-4 lg:gap-6">
-          <div className="hidden sm:flex items-center bg-surface-container-low px-4 py-2 rounded-[1px] border border-surface-container-highest/30">
-            <Search className="w-4 h-4 text-primary/30" />
+        <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
+          <div className="w-full flex items-center bg-surface-container px-4 py-2 rounded-[1px] border border-transparent focus-within:bg-surface-container-low focus-within:border-outline-variant transition-all">
+            <Search className="w-4 h-4 text-primary/40" />
             <input 
               type="text" 
-              placeholder="Search tools..." 
-              className="bg-transparent border-none focus:ring-0 text-sm w-32 lg:w-48 font-label placeholder:text-primary/20"
+              placeholder="Search converters & calculators..." 
+              className="bg-transparent border-none focus:ring-0 text-sm w-full font-body placeholder:text-primary/40 ml-2 text-primary"
             />
+            <div className="flex items-center gap-1 px-1.5 py-0.5 bg-surface-container-low border border-outline-variant rounded-[1px] text-[10px] font-bold text-primary/40">
+              <span className="text-[12px]">⌘</span> K
+            </div>
           </div>
+        </div>
+
+        <div className="flex items-center gap-4 lg:gap-8">
+          <nav className="hidden md:flex items-center gap-8">
+            <NavLink to="/converters" className="text-sm font-bold text-primary/60 hover:text-secondary transition-colors">Converters</NavLink>
+            <NavLink to="/calculators" className="text-sm font-bold text-primary/60 hover:text-secondary transition-colors">Calculators</NavLink>
+          </nav>
           <button 
             onClick={toggleTheme}
             className="p-2 text-primary/40 hover:text-secondary transition-colors"
           >
-            {theme === 'light' ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
-          </button>
-          <button className="p-2 text-primary/40 hover:text-secondary transition-colors">
-            <Settings className="w-6 h-6" />
-          </button>
-          <button className="p-2 text-primary/40 hover:text-secondary transition-colors">
-            <UserCircle className="w-6 h-6" />
+            {theme === 'light' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
           <button 
             className="md:hidden p-2 text-primary"
@@ -90,57 +104,104 @@ export default function Layout({ children }: LayoutProps) {
 
       <div className="flex flex-1 relative">
         {/* Sidebar Navigation */}
-        <aside className="hidden lg:flex flex-col w-72 sticky top-20 h-[calc(100vh-5rem)] bg-surface-container-low border-r border-surface-container-highest/30 py-10">
-          <div className="px-8 mb-10">
-            <h4 className="text-xs font-black text-secondary uppercase tracking-[0.2em] mb-1">Navigation</h4>
-            <p className="text-[10px] text-primary/40 font-label">Swiss Precision Tools</p>
+        <aside className="hidden lg:flex flex-col w-64 sticky top-16 h-[calc(100vh-4rem)] bg-surface-container-low border-r border-outline-variant py-6 overflow-y-auto">
+          <div className="px-6 mb-6">
+            <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em]">Tools</h4>
           </div>
           
           <nav className="flex-1 space-y-1">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({ isActive }) =>
-                  cn(
-                    "flex items-center gap-4 pl-8 py-4 text-sm font-label font-bold uppercase tracking-widest transition-all relative group",
-                    isActive 
-                      ? "bg-white text-secondary rounded-r-[1px] shadow-sm" 
-                      : "text-primary/60 hover:bg-surface-container-high hover:text-primary"
-                  )
-                }
+            {/* Converters Section */}
+            <div>
+              <button 
+                onClick={() => setIsConvertersOpen(!isConvertersOpen)}
+                className="w-full flex items-center justify-between px-6 py-3 text-sm font-bold text-primary/80 hover:bg-surface-container transition-colors group"
               >
-                {({ isActive }) => (
-                  <>
-                    <item.icon className={cn("w-5 h-5", isActive ? "text-secondary" : "text-primary/40 group-hover:text-primary")} />
-                    <span>{item.name}</span>
-                    {isActive && (
-                      <motion.div 
-                        layoutId="activeNav"
-                        className="absolute left-0 w-1 h-6 bg-secondary rounded-full"
-                      />
-                    )}
-                  </>
+                <div className="flex items-center gap-3">
+                  <div className="bg-blue-600 p-1 rounded-[1px]">
+                    <Repeat className="w-3 h-3 text-white" />
+                  </div>
+                  <span>Converters</span>
+                </div>
+                {isConvertersOpen ? <ChevronUp className="w-4 h-4 text-primary/40" /> : <ChevronDown className="w-4 h-4 text-primary/40" />}
+              </button>
+              <AnimatePresence initial={false}>
+                {isConvertersOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden"
+                  >
+                    {convertersItems.map((item) => (
+                      <NavLink
+                        key={item.name}
+                        to={item.path}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center pl-14 py-2.5 text-xs font-medium transition-all relative",
+                            isActive ? "text-secondary font-bold after:absolute after:left-12 after:w-1 after:h-1 after:bg-secondary after:rounded-full" : "text-primary/50 hover:text-secondary"
+                          )
+                        }
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+                  </motion.div>
                 )}
-              </NavLink>
-            ))}
+              </AnimatePresence>
+            </div>
+
+            {/* Calculators Section */}
+            <div>
+              <button 
+                onClick={() => setIsCalculatorsOpen(!isCalculatorsOpen)}
+                className="w-full flex items-center justify-between px-6 py-3 text-sm font-bold text-primary/80 hover:bg-surface-container transition-colors group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="bg-orange-600 p-1 rounded-[1px]">
+                    <Calculator className="w-3 h-3 text-white" />
+                  </div>
+                  <span>Calculators</span>
+                </div>
+                {isCalculatorsOpen ? <ChevronUp className="w-4 h-4 text-primary/40" /> : <ChevronDown className="w-4 h-4 text-primary/40" />}
+              </button>
+              <AnimatePresence initial={false}>
+                {isCalculatorsOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden"
+                  >
+                    {calculatorsItems.map((item) => (
+                      <NavLink
+                        key={item.name}
+                        to={item.path}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center pl-14 py-2.5 text-xs font-medium transition-all relative",
+                            isActive ? "text-secondary font-bold after:absolute after:left-12 after:w-1 after:h-1 after:bg-secondary after:rounded-full" : "text-primary/50 hover:text-secondary"
+                          )
+                        }
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
 
-          <div className="px-6 mb-10">
-            <button className="w-full bg-primary text-white py-4 rounded-[1px] font-headline font-bold tracking-widest hover:bg-secondary transition-all group flex items-center justify-center gap-2">
-              TRY PRO
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <div className="px-6 mt-auto pt-6 border-t border-outline-variant/30 space-y-2">
+            <button className="w-full bg-secondary text-white py-3 rounded-[1px] text-xs font-black uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-secondary/10">
+              Try Pro
             </button>
-          </div>
-
-          <div className="px-8 pt-8 border-t border-surface-container-highest/50 space-y-4">
-            <button className="flex items-center gap-3 text-primary/40 hover:text-primary transition-colors text-sm font-label uppercase tracking-widest font-bold">
-              <Settings className="w-4 h-4" />
-              <span>Settings</span>
+            <button className="w-full flex items-center gap-3 px-4 py-2 text-xs font-bold text-primary/40 hover:text-primary transition-colors">
+              <Monitor className="w-4 h-4" /> Settings
             </button>
-            <button className="flex items-center gap-3 text-primary/40 hover:text-primary transition-colors text-sm font-label uppercase tracking-widest font-bold">
-              <HelpCircle className="w-4 h-4" />
-              <span>Help</span>
+            <button className="w-full flex items-center gap-3 px-4 py-2 text-xs font-bold text-primary/40 hover:text-primary transition-colors">
+              <FileText className="w-4 h-4" /> Help Center
             </button>
           </div>
         </aside>
@@ -150,12 +211,12 @@ export default function Layout({ children }: LayoutProps) {
           {children}
           
           {/* Footer */}
-          <footer className="w-full py-12 px-8 lg:px-16 mt-24 border-t border-surface-container-highest/50 bg-background">
+          <footer className="w-full py-12 px-8 lg:px-16 mt-24 border-t border-outline-variant/30 bg-surface-container-low">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
               <p className="text-primary/40 font-label text-xs">© 2024 BiDitek Converter</p>
               <div className="flex gap-8">
                 {['About', 'Privacy', 'Terms'].map((link) => (
-                  <a key={link} href="#" className="text-primary/40 hover:text-primary transition-colors font-label text-xs underline-offset-4 hover:underline">
+                  <a key={link} href="#" className="text-primary/40 hover:text-secondary transition-colors font-label text-xs underline-offset-4 hover:underline">
                     {link}
                   </a>
                 ))}
@@ -175,42 +236,39 @@ export default function Layout({ children }: LayoutProps) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-surface-container-low pt-24 px-6 md:hidden"
           >
             <nav className="space-y-6">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-4 text-2xl font-headline font-bold text-primary"
+              <Link
+                to="/converters"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-4 text-2xl font-headline font-bold text-primary"
+              >
+                <Repeat className="w-8 h-8 text-blue-600" />
+                Converters
+              </Link>
+              <Link
+                to="/calculators"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-4 text-2xl font-headline font-bold text-primary"
+              >
+                <Calculator className="w-8 h-8 text-[#5D4037]" />
+                Calculators
+              </Link>
+              <div className="pt-10 border-t border-outline-variant">
+                <button 
+                  onClick={() => {
+                    toggleTheme();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center gap-4 text-xl font-headline font-bold text-primary/40"
                 >
-                  <item.icon className="w-8 h-8 text-secondary" />
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-10 space-y-4">
-                <button className="w-full bg-primary text-white py-5 rounded-[1px] font-headline font-bold text-xl">
-                  TRY PRO
+                  {theme === 'light' ? (
+                    <><Moon className="w-6 h-6" /> Dark Mode</>
+                  ) : (
+                    <><Sun className="w-6 h-6" /> Light Mode</>
+                  )}
                 </button>
-                <div className="grid grid-cols-2 gap-4">
-                  <button className="flex items-center justify-center gap-2 p-4 bg-surface-container-low rounded-[1px] text-primary/60 font-bold">
-                    <Settings className="w-5 h-5" /> Settings
-                  </button>
-                  <button className="flex items-center justify-center gap-2 p-4 bg-surface-container-low rounded-[1px] text-primary/60 font-bold">
-                    <HelpCircle className="w-5 h-5" /> Help
-                  </button>
-                  <button 
-                    onClick={toggleTheme}
-                    className="col-span-2 flex items-center justify-center gap-2 p-4 bg-surface-container-low rounded-[1px] text-primary/60 font-bold"
-                  >
-                    {theme === 'light' ? (
-                      <><Moon className="w-5 h-5" /> Dark Mode</>
-                    ) : (
-                      <><Sun className="w-5 h-5" /> Light Mode</>
-                    )}
-                  </button>
-                </div>
               </div>
             </nav>
           </motion.div>
