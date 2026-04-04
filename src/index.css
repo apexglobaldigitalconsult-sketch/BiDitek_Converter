@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #fbf9f4;
+  --primary: #000000;
+  --secondary: #ad3300;
+  --secondary-container: #fc6028;
+  --surface-container-low: #f5f3ee;
+  --surface-container: #f0eee9;
+  --surface-container-high: #eae8e3;
+  --surface-container-highest: #e4e2dd;
+  --surface-bright: #fbf9f4;
+  --on-surface: #1b1c19;
+  --outline-variant: #c4c6cc;
+}
+
+.dark {
+  --background: #0f0e0c;
+  --primary: #fbf9f4;
+  --secondary: #ff6b2b;
+  --secondary-container: #ad3300;
+  --surface-container-low: #1a1815;
+  --surface-container: #211f1b;
+  --surface-container-high: #2a2823;
+  --surface-container-highest: #33312c;
+  --surface-bright: #1a1815;
+  --on-surface: #fbf9f4;
+  --outline-variant: #4a4843;
+}
+
+@theme {
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Jost", sans-serif;
+  --font-body: "Jost", sans-serif;
+  --font-label: "Jost", sans-serif;
+
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-bright: var(--surface-bright);
+  --color-on-surface: var(--on-surface);
+  --color-outline-variant: var(--outline-variant);
+
+  --radius-xs: 1px;
+  --radius-sm: 1px;
+  --radius-md: 1px;
+  --radius-lg: 1px;
+  --radius-xl: 1px;
+  --radius-2xl: 1px;
+  --radius-3xl: 1px;
+  --radius-4xl: 1px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .editorial-shadow {
+    box-shadow: 0 24px 48px -12px rgba(13, 27, 42, 0.06);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
