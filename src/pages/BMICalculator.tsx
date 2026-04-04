@@ -18,10 +18,10 @@ export default function BMICalculator() {
 
   const bmiStatus = React.useMemo(() => {
     const val = parseFloat(bmi);
-    if (val < 18.5) return { label: 'Underweight', color: 'text-blue-600 bg-blue-100', pos: '15%' };
-    if (val < 25) return { label: 'Normal Range', color: 'text-green-600 bg-green-100', pos: '42%' };
-    if (val < 30) return { label: 'Overweight', color: 'text-yellow-600 bg-yellow-100', pos: '68%' };
-    return { label: 'Obese', color: 'text-red-600 bg-red-100', pos: '85%' };
+    if (val < 18.5) return { label: 'Underweight', color: 'text-blue-500 bg-blue-500/10', pos: '15%' };
+    if (val < 25) return { label: 'Normal Range', color: 'text-green-500 bg-green-500/10', pos: '42%' };
+    if (val < 30) return { label: 'Overweight', color: 'text-yellow-500 bg-yellow-500/10', pos: '68%' };
+    return { label: 'Obese', color: 'text-red-500 bg-red-500/10', pos: '85%' };
   }, [bmi]);
 
   return (

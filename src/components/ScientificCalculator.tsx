@@ -105,7 +105,7 @@ export default function ScientificCalculator() {
         "h-10 text-[11px] font-bold rounded-[1px] transition-all flex items-center justify-center border border-outline-variant/20",
         variant === 'default' && "bg-surface-container hover:bg-surface-container-high text-primary",
         variant === 'action' && "bg-secondary text-white hover:opacity-90",
-        variant === 'operator' && "bg-primary text-white hover:opacity-90",
+        variant === 'operator' && "bg-primary text-background hover:opacity-90",
         variant === 'function' && "bg-surface-container-high hover:bg-surface-container-highest text-primary/80",
         className
       )}
@@ -118,8 +118,8 @@ export default function ScientificCalculator() {
     <div className="bg-surface-container-low p-6 rounded-[1px] border border-outline-variant/30 shadow-sm max-w-2xl mx-auto w-full">
       {/* Display */}
       <div className="bg-primary p-4 rounded-[1px] mb-4 text-right overflow-hidden">
-        <div className="text-white/40 text-[10px] font-mono h-4 mb-1">{equation}</div>
-        <div className="text-white text-3xl font-mono font-bold truncate">{display}</div>
+        <div className="text-background/60 text-[10px] font-mono h-4 mb-1">{equation}</div>
+        <div className="text-background text-3xl font-mono font-bold truncate">{display}</div>
       </div>
 
       {/* Controls */}

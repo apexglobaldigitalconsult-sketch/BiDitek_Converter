@@ -143,8 +143,8 @@ export default function Converters() {
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent flex flex-col justify-end p-12">
-                <span className="text-white/40 font-label text-xs uppercase tracking-[0.2em] font-bold mb-4">Pro Feature</span>
-                <h4 className="text-white text-4xl font-headline font-bold leading-[1.1] tracking-tight">
+                <span className="text-background/60 font-label text-xs uppercase tracking-[0.2em] font-bold mb-4">Pro Feature</span>
+                <h4 className="text-background text-4xl font-headline font-bold leading-[1.1] tracking-tight">
                   Batch conversion at the speed of light.
                 </h4>
               </div>
@@ -195,7 +195,7 @@ export default function Converters() {
                       <option>Kilometers (km)</option>
                     </select>
                   </div>
-                  <button className="w-20 h-20 rounded-[1px] border-2 border-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all editorial-shadow">
+                  <button className="w-20 h-20 rounded-[1px] border-2 border-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-background transition-all editorial-shadow">
                     <ArrowLeftRight className="w-8 h-8" />
                   </button>
                   <div className="flex-1 relative">
@@ -208,16 +208,16 @@ export default function Converters() {
               </div>
 
               {/* Result Card */}
-              <div className="bg-primary text-white rounded-[1px] p-16 relative overflow-hidden editorial-shadow">
+              <div className="bg-primary text-background rounded-[1px] p-16 relative overflow-hidden editorial-shadow">
                 <div className="absolute -right-24 -top-24 w-80 h-80 bg-secondary/20 rounded-full blur-[100px]" />
                 <div className="relative z-10 space-y-6">
-                  <p className="font-label text-sm uppercase tracking-[0.3em] text-white/40 font-bold">Converted Result</p>
+                  <p className="font-label text-sm uppercase tracking-[0.3em] text-background/60 font-bold">Converted Result</p>
                   <div className="space-y-2">
                     <h3 className="font-headline text-7xl lg:text-9xl font-extrabold tracking-tighter">4,101.05</h3>
                     <p className="text-secondary text-3xl font-headline font-bold uppercase tracking-tight">FEET (FT)</p>
                   </div>
                   <div className="pt-12 flex gap-4">
-                    <button className="flex-1 bg-white/10 hover:bg-white/20 py-5 rounded-[1px] font-headline font-bold text-lg flex items-center justify-center gap-3 backdrop-blur-xl transition-all">
+                    <button className="flex-1 bg-background/10 hover:bg-background/20 py-5 rounded-[1px] font-headline font-bold text-lg flex items-center justify-center gap-3 backdrop-blur-xl transition-all">
                       <Copy className="w-6 h-6" />
                       Copy Result
                     </button>

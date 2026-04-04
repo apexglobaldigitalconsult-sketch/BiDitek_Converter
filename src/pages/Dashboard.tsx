@@ -57,7 +57,7 @@ const categories = [
   { name: 'Finance Calculators', desc: 'Loans, mortgage, investment tools', icon: DollarSign, color: 'bg-yellow-600' },
   { name: 'Health Calculators', desc: 'BMI, BMR, calorie and body tools', icon: HeartPulse, color: 'bg-orange-500' },
   { name: 'Math Calculators', desc: 'Scientific, fraction, percentage tools', icon: Divide, color: 'bg-blue-500' },
-  { name: 'Tech Calculators', desc: 'Subnet, password, conversion tools', icon: Monitor, color: 'bg-gray-800' },
+  { name: 'Tech Calculators', desc: 'Subnet, password, conversion tools', icon: Monitor, color: 'bg-slate-600' },
 ];
 
 export default function Dashboard() {
