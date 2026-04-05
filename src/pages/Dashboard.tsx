@@ -52,7 +52,7 @@ const popularTools = [
 ];
 
 const categories = [
-  { name: 'File Converter', desc: 'Convert images, PDFs, documents and more', icon: Repeat, color: 'bg-blue-600' },
+  { name: 'File Converter', desc: 'Convert images, PDFs, documents and more', icon: Repeat, color: 'bg-secondary' },
   { name: 'Unit Converter', desc: 'Length, weight, temperature, speed and more', icon: Ruler, color: 'bg-yellow-500' },
   { name: 'Finance Calculators', desc: 'Loans, mortgage, investment tools', icon: DollarSign, color: 'bg-yellow-600' },
   { name: 'Health Calculators', desc: 'BMI, BMR, calorie and body tools', icon: HeartPulse, color: 'bg-orange-500' },
