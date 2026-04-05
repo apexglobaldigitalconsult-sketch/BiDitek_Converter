@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import Converters from './pages/Converters';
 import Calculators from './pages/Calculators';
 import BMICalculator from './pages/BMICalculator';
+import MortgageCalculator from './pages/MortgageCalculator';
 import { ThemeProvider } from './lib/ThemeContext';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
             <Route path="/converters" element={<Converters />} />
             <Route path="/calculators" element={<Calculators />} />
             <Route path="/calculators/bmi" element={<BMICalculator />} />
+            <Route path="/calculators/mortgage" element={<MortgageCalculator />} />
           </Routes>
         </Layout>
       </Router>

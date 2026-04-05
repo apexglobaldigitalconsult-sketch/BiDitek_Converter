@@ -146,29 +146,6 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* Recently Used */}
-      <section className="px-6 lg:px-12 max-w-7xl mx-auto w-full">
-        <h3 className="text-[10px] uppercase tracking-[0.2em] font-black text-primary/40 mb-6">Recently Used</h3>
-        <div className="flex flex-wrap gap-4">
-          {[
-            { name: 'Image Converter', icon: ImageIcon },
-            { name: 'Unit Converter', icon: Ruler },
-            { name: 'BMI Calc', icon: HeartPulse },
-            { name: 'Loan Calc', icon: Wallet },
-            { name: 'Age Calc', icon: Cake },
-            { name: 'Temp Converter', icon: Ruler },
-          ].map((tool) => (
-            <button 
-              key={tool.name}
-              className="bg-surface-container-low px-5 py-2.5 rounded-full flex items-center gap-3 border border-outline-variant hover:border-secondary transition-all group shadow-sm"
-            >
-              <tool.icon className="w-4 h-4 text-primary/40 group-hover:text-secondary transition-colors" />
-              <span className="font-bold text-[11px] text-primary/70">{tool.name}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
       {/* Popular Tools Grid */}
       <section className="px-6 lg:px-12 max-w-7xl mx-auto w-full">
         <div className="flex justify-between items-end mb-12">
