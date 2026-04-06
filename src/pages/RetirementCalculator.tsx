@@ -14,6 +14,7 @@ export default function RetirementCalculator() {
   const [c1OtherIncome, setC1OtherIncome] = useState('0');
   const [c1CurrentSavings, setC1CurrentSavings] = useState('30000');
   const [c1FutureSavings, setC1FutureSavings] = useState('10');
+  const [c1Result, setC1Result] = useState<any>(null);
 
   // State for Calculator 2
   const [c2AgeNow, setC2AgeNow] = useState('35');
@@ -21,6 +22,7 @@ export default function RetirementCalculator() {
   const [c2AmountNeeded, setC2AmountNeeded] = useState('600000');
   const [c2SavingsNow, setC2SavingsNow] = useState('30000');
   const [c2InvestmentReturn, setC2InvestmentReturn] = useState('6');
+  const [c2Result, setC2Result] = useState<any>(null);
 
   // State for Calculator 3
   const [c3AgeNow, setC3AgeNow] = useState('35');
@@ -31,11 +33,189 @@ export default function RetirementCalculator() {
   const [c3MonthlyContribution, setC3MonthlyContribution] = useState('500');
   const [c3InvestmentReturn, setC3InvestmentReturn] = useState('6');
   const [c3InflationRate, setC3InflationRate] = useState('3');
+  const [c3Result, setC3Result] = useState<any>(null);
 
   // State for Calculator 4
   const [c4AmountHave, setC4AmountHave] = useState('600000');
   const [c4WithdrawAmount, setC4WithdrawAmount] = useState('5000');
   const [c4InvestmentReturn, setC4InvestmentReturn] = useState('6');
+  const [c4Result, setC4Result] = useState<any>(null);
+
+  const calculateC1 = () => {
+    const currentAge = parseFloat(c1CurrentAge) || 0;
+    const retirementAge = parseFloat(c1RetirementAge) || 0;
+    const lifeExpectancy = parseFloat(c1LifeExpectancy) || 0;
+    const currentIncome = parseFloat(c1CurrentIncome) || 0;
+    const incomeIncrease = (parseFloat(c1IncomeIncrease) || 0) / 100;
+    const incomeNeeded = (parseFloat(c1IncomeNeeded) || 0) / 100;
+    const investmentReturn = (parseFloat(c1InvestmentReturn) || 0) / 100;
+    const inflationRate = (parseFloat(c1InflationRate) || 0) / 100;
+    const otherIncome = parseFloat(c1OtherIncome) || 0;
+    const currentSavings = parseFloat(c1CurrentSavings) || 0;
+    const futureSavings = (parseFloat(c1FutureSavings) || 0) / 100;
+
+    const yearsToRetirement = retirementAge - currentAge;
+    const yearsInRetirement = lifeExpectancy - retirementAge;
+
+    if (yearsToRetirement <= 0 || yearsInRetirement <= 0) return;
+
+    const incomeAtRetirement = currentIncome * Math.pow(1 + incomeIncrease, yearsToRetirement);
+    const firstYearRetirementIncomeNeeded = incomeAtRetirement * incomeNeeded;
+    const annualOtherIncome = otherIncome * 12;
+    const netIncomeNeededFirstYear = Math.max(0, firstYearRetirementIncomeNeeded - annualOtherIncome);
+
+    let amountNeededAtRetirement = 0;
+    const r = investmentReturn;
+    const g = inflationRate;
+    const n = yearsInRetirement;
+
+    if (r === g) {
+      amountNeededAtRetirement = netIncomeNeededFirstYear * n;
+    } else {
+      amountNeededAtRetirement = netIncomeNeededFirstYear * (1 - Math.pow((1 + g) / (1 + r), n)) / (r - g);
+    }
+
+    const fvCurrentSavings = currentSavings * Math.pow(1 + r, yearsToRetirement);
+    
+    let fvFutureSavings = 0;
+    const pmt = currentIncome * futureSavings;
+    const g_inc = incomeIncrease;
+    const n_to_ret = yearsToRetirement;
+
+    if (r === g_inc) {
+      fvFutureSavings = pmt * n_to_ret * Math.pow(1 + r, n_to_ret - 1);
+    } else {
+      fvFutureSavings = pmt * (Math.pow(1 + r, n_to_ret) - Math.pow(1 + g_inc, n_to_ret)) / (r - g_inc);
+    }
+
+    const totalSavedAtRetirement = fvCurrentSavings + fvFutureSavings;
+    const difference = totalSavedAtRetirement - amountNeededAtRetirement;
+
+    setC1Result({
+      amountNeeded: amountNeededAtRetirement,
+      amountSaved: totalSavedAtRetirement,
+      difference: difference
+    });
+  };
+
+  const calculateC2 = () => {
+    const ageNow = parseFloat(c2AgeNow) || 0;
+    const retirementAge = parseFloat(c2RetirementAge) || 0;
+    const amountNeeded = parseFloat(c2AmountNeeded) || 0;
+    const savingsNow = parseFloat(c2SavingsNow) || 0;
+    const investmentReturn = (parseFloat(c2InvestmentReturn) || 0) / 100;
+
+    const yearsToRetirement = retirementAge - ageNow;
+    if (yearsToRetirement <= 0) return;
+
+    const r = investmentReturn;
+    const fvCurrentSavings = savingsNow * Math.pow(1 + r, yearsToRetirement);
+    const shortfall = Math.max(0, amountNeeded - fvCurrentSavings);
+
+    let annualContribution = 0;
+    if (r === 0) {
+      annualContribution = shortfall / yearsToRetirement;
+    } else {
+      annualContribution = shortfall * r / (Math.pow(1 + r, yearsToRetirement) - 1);
+    }
+
+    const r_m = r / 12;
+    const n_m = yearsToRetirement * 12;
+    const fvCurrentSavings_m = savingsNow * Math.pow(1 + r_m, n_m);
+    const shortfall_m = Math.max(0, amountNeeded - fvCurrentSavings_m);
+    
+    let monthlyContribution = 0;
+    if (r_m === 0) {
+      monthlyContribution = shortfall_m / n_m;
+    } else {
+      monthlyContribution = shortfall_m * r_m / (Math.pow(1 + r_m, n_m) - 1);
+    }
+
+    setC2Result({
+      annualContribution,
+      monthlyContribution
+    });
+  };
+
+  const calculateC3 = () => {
+    const ageNow = parseFloat(c3AgeNow) || 0;
+    const retirementAge = parseFloat(c3RetirementAge) || 0;
+    const lifeExpectancy = parseFloat(c3LifeExpectancy) || 0;
+    const savingsToday = parseFloat(c3SavingsToday) || 0;
+    const annualContribution = parseFloat(c3AnnualContribution) || 0;
+    const monthlyContribution = parseFloat(c3MonthlyContribution) || 0;
+    const investmentReturn = (parseFloat(c3InvestmentReturn) || 0) / 100;
+    const inflationRate = (parseFloat(c3InflationRate) || 0) / 100;
+
+    const yearsToRetirement = retirementAge - ageNow;
+    const yearsInRetirement = lifeExpectancy - retirementAge;
+
+    if (yearsToRetirement < 0 || yearsInRetirement <= 0) return;
+
+    const r = investmentReturn;
+    const g = inflationRate;
+    
+    const totalAnnualContribution = annualContribution + monthlyContribution * 12;
+    
+    const fvSavings = savingsToday * Math.pow(1 + r, yearsToRetirement);
+    let fvContributions = 0;
+    if (r === 0) {
+      fvContributions = totalAnnualContribution * yearsToRetirement;
+    } else {
+      fvContributions = totalAnnualContribution * (Math.pow(1 + r, yearsToRetirement) - 1) / r;
+    }
+
+    const totalAtRetirement = fvSavings + fvContributions;
+
+    let firstYearWithdrawal = 0;
+    if (r === g) {
+      firstYearWithdrawal = totalAtRetirement / yearsInRetirement;
+    } else {
+      firstYearWithdrawal = totalAtRetirement * (r - g) / (1 - Math.pow((1 + g) / (1 + r), yearsInRetirement));
+    }
+
+    setC3Result({
+      totalAtRetirement,
+      monthlyWithdrawal: firstYearWithdrawal / 12
+    });
+  };
+
+  const calculateC4 = () => {
+    const amountHave = parseFloat(c4AmountHave) || 0;
+    const withdrawAmount = parseFloat(c4WithdrawAmount) || 0;
+    const investmentReturn = (parseFloat(c4InvestmentReturn) || 0) / 100;
+
+    const r_m = investmentReturn / 12;
+    const pmt = withdrawAmount;
+    const pv = amountHave;
+
+    if (pv * r_m >= pmt) {
+      setC4Result({
+        lastsForever: true
+      });
+      return;
+    }
+
+    let n = 0;
+    if (r_m === 0) {
+      n = pv / pmt;
+    } else {
+      n = -Math.log(1 - pv * r_m / pmt) / Math.log(1 + r_m);
+    }
+
+    const years = Math.floor(n / 12);
+    const months = Math.ceil(n % 12);
+
+    setC4Result({
+      lastsForever: false,
+      years,
+      months
+    });
+  };
+
+  const formatCurrency = (val: number) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-4 md:p-6 font-sans">
@@ -163,15 +343,36 @@ export default function RetirementCalculator() {
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
+                  <button onClick={calculateC1} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
                     Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC1Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
+            {c1Result && (
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+                <h3 className="font-bold text-primary mb-2">Results</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-primary/80">Amount needed at retirement:</span>
+                    <span className="font-bold text-primary">{formatCurrency(c1Result.amountNeeded)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-primary/80">Amount saved at retirement:</span>
+                    <span className="font-bold text-primary">{formatCurrency(c1Result.amountSaved)}</span>
+                  </div>
+                  <div className="flex justify-between pt-2 border-t border-outline-variant">
+                    <span className="text-primary/80 font-bold">Difference:</span>
+                    <span className={`font-bold ${c1Result.difference >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      {c1Result.difference >= 0 ? '+' : ''}{formatCurrency(c1Result.difference)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Calculator 2: How can you save for retirement? */}
@@ -213,15 +414,30 @@ export default function RetirementCalculator() {
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
+                  <button onClick={calculateC2} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
                     Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC2Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
+            {c2Result && (
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+                <h3 className="font-bold text-primary mb-2">Results</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-primary/80">Monthly contribution needed:</span>
+                    <span className="font-bold text-primary">{formatCurrency(c2Result.monthlyContribution)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-primary/80">Annual contribution needed:</span>
+                    <span className="font-bold text-primary">{formatCurrency(c2Result.annualContribution)}</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Calculator 3: How much can you withdraw after retirement? */}
@@ -281,15 +497,30 @@ export default function RetirementCalculator() {
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
+                  <button onClick={calculateC3} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
                     Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC3Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
+            {c3Result && (
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+                <h3 className="font-bold text-primary mb-2">Results</h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-primary/80">Total at retirement:</span>
+                    <span className="font-bold text-primary">{formatCurrency(c3Result.totalAtRetirement)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-primary/80">Monthly withdrawal amount:</span>
+                    <span className="font-bold text-primary">{formatCurrency(c3Result.monthlyWithdrawal)}</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Calculator 4: How long can your money last? */}
@@ -326,15 +557,29 @@ export default function RetirementCalculator() {
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
+                  <button onClick={calculateC4} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
                     Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC4Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
+            {c4Result && (
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+                <h3 className="font-bold text-primary mb-2">Results</h3>
+                <div className="text-sm">
+                  {c4Result.lastsForever ? (
+                    <p className="font-bold text-green-600">Your money will last forever at this withdrawal rate!</p>
+                  ) : (
+                    <p className="text-primary/80">
+                      Your money will last for <span className="font-bold text-primary">{c4Result.years} years</span> and <span className="font-bold text-primary">{c4Result.months} months</span>.
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Related */}
