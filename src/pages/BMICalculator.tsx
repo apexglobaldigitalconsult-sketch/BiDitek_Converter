@@ -107,7 +107,7 @@ export default function BMICalculator() {
                 max="250" 
                 value={height}
                 onChange={(e) => setHeight(Number(e.target.value))}
-                className="flex-1 h-2 bg-surface-container-highest appearance-none rounded-full accent-secondary cursor-pointer"
+                className="flex-1 h-2 bg-surface-container-highest appearance-none rounded-[1px] accent-secondary cursor-pointer"
               />
             </div>
           </div>
@@ -136,7 +136,7 @@ export default function BMICalculator() {
                 max="200" 
                 value={weight}
                 onChange={(e) => setWeight(Number(e.target.value))}
-                className="flex-1 h-2 bg-surface-container-highest appearance-none rounded-full accent-secondary cursor-pointer"
+                className="flex-1 h-2 bg-surface-container-highest appearance-none rounded-[1px] accent-secondary cursor-pointer"
               />
             </div>
           </div>
@@ -171,10 +171,10 @@ export default function BMICalculator() {
                 <span>Over</span>
                 <span>Obese</span>
               </div>
-              <div className="h-4 w-full rounded-full bg-gradient-to-r from-blue-400 via-green-400 to-red-400 relative">
+              <div className="h-4 w-full rounded-[1px] bg-gradient-to-r from-blue-400 via-green-400 to-red-400 relative">
                 <motion.div 
                   animate={{ left: bmiStatus.pos }}
-                  className="absolute top-1/2 -translate-y-1/2 w-2 h-8 bg-primary rounded-full border-4 border-surface-container-low shadow-lg"
+                  className="absolute top-1/2 -translate-y-1/2 w-2 h-8 bg-primary rounded-[1px] border-4 border-surface-container-low shadow-lg"
                 />
               </div>
             </div>

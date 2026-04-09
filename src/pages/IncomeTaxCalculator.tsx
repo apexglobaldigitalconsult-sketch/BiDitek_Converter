@@ -119,28 +119,28 @@ export default function IncomeTaxCalculator() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* Left Column: Inputs */}
             <div className="md:col-span-5">
-              <div className="bg-surface-container p-4 border border-outline-variant rounded-sm">
+              <div className="bg-surface-container p-4 border border-outline-variant rounded-[1px]">
                 <div className="space-y-4 text-sm">
                   
                   <div className="flex flex-col space-y-1">
                     <label className="text-primary/90 font-semibold">Gross Income (Annual)</label>
                     <div className="relative">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={grossIncome} onChange={(e) => setGrossIncome(e.target.value)} className="w-full pl-6 pr-2 py-1.5 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={grossIncome} onChange={(e) => setGrossIncome(e.target.value)} className="w-full pl-6 pr-2 py-1.5 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
 
                   <div className="flex flex-col space-y-1">
                     <label className="text-primary/90 font-semibold">Filing Status</label>
-                    <select value={filingStatus} onChange={(e) => setFilingStatus(e.target.value)} className="w-full px-2 py-1.5 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                    <select value={filingStatus} onChange={(e) => setFilingStatus(e.target.value)} className="w-full px-2 py-1.5 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                       <option value="single">Single</option>
                       <option value="mfj">Married Filing Jointly</option>
                     </select>
@@ -149,14 +149,14 @@ export default function IncomeTaxCalculator() {
                   <div className="flex flex-col space-y-1">
                     <label className="text-primary/90 font-semibold">Estimated State Tax Rate</label>
                     <div className="relative">
-                      <input type="number" step="0.1" value={stateTaxRate} onChange={(e) => setStateTaxRate(e.target.value)} className="w-full pr-6 pl-2 py-1.5 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.1" value={stateTaxRate} onChange={(e) => setStateTaxRate(e.target.value)} className="w-full pr-6 pl-2 py-1.5 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
 
                   <div className="flex flex-col space-y-1">
                     <label className="text-primary/90 font-semibold">Deduction Type</label>
-                    <select value={deductionType} onChange={(e) => setDeductionType(e.target.value)} className="w-full px-2 py-1.5 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                    <select value={deductionType} onChange={(e) => setDeductionType(e.target.value)} className="w-full px-2 py-1.5 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                       <option value="standard">Standard Deduction</option>
                       <option value="itemized">Itemized Deduction</option>
                     </select>
@@ -167,13 +167,13 @@ export default function IncomeTaxCalculator() {
                       <label className="text-primary/90 font-semibold">Itemized Amount</label>
                       <div className="relative">
                         <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                        <input type="number" value={itemizedDeduction} onChange={(e) => setItemizedDeduction(e.target.value)} className="w-full pl-6 pr-2 py-1.5 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={itemizedDeduction} onChange={(e) => setItemizedDeduction(e.target.value)} className="w-full pl-6 pr-2 py-1.5 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       </div>
                     </div>
                   )}
 
                   <div className="flex justify-center gap-2 pt-4">
-                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-6 py-2 rounded font-bold flex items-center gap-1 shadow-sm w-full justify-center">
+                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-6 py-2 rounded-[1px] font-bold flex items-center gap-1 shadow-sm w-full justify-center">
                       Calculate
                     </button>
                   </div>
@@ -183,7 +183,7 @@ export default function IncomeTaxCalculator() {
 
             {/* Right Column: Results */}
             <div className="md:col-span-7 space-y-6">
-              <div className="bg-surface-container-low border border-outline-variant rounded-md shadow-sm overflow-hidden">
+              <div className="bg-surface-container-low border border-outline-variant rounded-[1px] shadow-sm overflow-hidden">
                 <div className="bg-[#7cb342] text-white p-2 flex justify-between items-center">
                   <span className="font-bold text-lg">Results Summary</span>
                   <div className="w-4 h-4 border border-white flex items-center justify-center text-[10px]">💾</div>
@@ -213,7 +213,7 @@ export default function IncomeTaxCalculator() {
               </div>
 
               {/* Breakdown Table */}
-              <div className="bg-surface-container-low border border-outline-variant rounded-md shadow-sm overflow-hidden">
+              <div className="bg-surface-container-low border border-outline-variant rounded-[1px] shadow-sm overflow-hidden">
                 <div className="bg-secondary text-white p-2">
                   <span className="font-bold">Tax Breakdown</span>
                 </div>
@@ -245,7 +245,7 @@ export default function IncomeTaxCalculator() {
           </div>
 
           {/* Chart */}
-          <div className="mt-8 bg-surface-container-low p-6 border border-outline-variant rounded-md shadow-sm">
+          <div className="mt-8 bg-surface-container-low p-6 border border-outline-variant rounded-[1px] shadow-sm">
             <h3 className="text-center font-bold text-primary mb-4">Income Breakdown</h3>
             <div className="h-72">
               <ResponsiveContainer width="100%" height="100%">
@@ -274,9 +274,9 @@ export default function IncomeTaxCalculator() {
           <div className="mt-8">
             <h3 className="font-bold text-primary mb-2">Related</h3>
             <div className="flex flex-wrap gap-2">
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Salary Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Retirement Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">401K Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Salary Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Retirement Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">401K Calculator</button>
             </div>
           </div>
 
@@ -303,11 +303,11 @@ export default function IncomeTaxCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>

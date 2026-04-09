@@ -152,8 +152,8 @@ export default function PaymentCalculator() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
@@ -162,20 +162,20 @@ export default function PaymentCalculator() {
             <div className="md:col-span-5">
               <div className="flex">
                 <button 
-                  className={`flex-1 py-2 text-sm font-bold rounded-t ${activeTab === 'fixedTerm' ? 'bg-primary text-background' : 'bg-secondary text-white hover:bg-secondary/80'}`}
+                  className={`flex-1 py-2 text-sm font-bold rounded-[1px] ${activeTab === 'fixedTerm' ? 'bg-primary text-background' : 'bg-secondary text-white hover:bg-secondary/80'}`}
                   onClick={() => setActiveTab('fixedTerm')}
                 >
                   Fixed Term
                 </button>
                 <button 
-                  className={`flex-1 py-2 text-sm font-bold rounded-t ${activeTab === 'fixedPayments' ? 'bg-primary text-background' : 'bg-secondary text-white hover:bg-secondary/80'}`}
+                  className={`flex-1 py-2 text-sm font-bold rounded-[1px] ${activeTab === 'fixedPayments' ? 'bg-primary text-background' : 'bg-secondary text-white hover:bg-secondary/80'}`}
                   onClick={() => setActiveTab('fixedPayments')}
                 >
                   Fixed Payments
                 </button>
               </div>
               
-              <div className="bg-surface-container p-4 rounded-b border border-outline-variant border-t-0">
+              <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant border-t-0">
                 <div className="space-y-3 text-sm">
                   {activeTab === 'fixedTerm' ? (
                     <>
@@ -183,20 +183,20 @@ export default function PaymentCalculator() {
                         <label className="text-primary/90">Loan Amount</label>
                         <div className="relative w-40">
                           <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                          <input type="number" value={ftLoanAmount} onChange={(e) => setFtLoanAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                          <input type="number" value={ftLoanAmount} onChange={(e) => setFtLoanAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
                         <label className="text-primary/90">Loan Term</label>
                         <div className="relative w-40">
-                          <input type="number" value={ftLoanTerm} onChange={(e) => setFtLoanTerm(e.target.value)} className="w-full pr-12 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                          <input type="number" value={ftLoanTerm} onChange={(e) => setFtLoanTerm(e.target.value)} className="w-full pr-12 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                           <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-xs">years</span>
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
                         <label className="text-primary/90">Interest Rate</label>
                         <div className="relative w-40">
-                          <input type="number" step="0.01" value={ftInterestRate} onChange={(e) => setFtInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                          <input type="number" step="0.01" value={ftInterestRate} onChange={(e) => setFtInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                           <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                         </div>
                       </div>
@@ -207,20 +207,20 @@ export default function PaymentCalculator() {
                         <label className="text-primary/90">Loan Amount</label>
                         <div className="relative w-40">
                           <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                          <input type="number" value={fpLoanAmount} onChange={(e) => setFpLoanAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                          <input type="number" value={fpLoanAmount} onChange={(e) => setFpLoanAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
                         <label className="text-primary/90">Monthly Pay</label>
                         <div className="relative w-40">
                           <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                          <input type="number" value={fpMonthlyPay} onChange={(e) => setFpMonthlyPay(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                          <input type="number" value={fpMonthlyPay} onChange={(e) => setFpMonthlyPay(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
                         <label className="text-primary/90">Interest Rate</label>
                         <div className="relative w-40">
-                          <input type="number" step="0.01" value={fpInterestRate} onChange={(e) => setFpInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                          <input type="number" step="0.01" value={fpInterestRate} onChange={(e) => setFpInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                           <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                         </div>
                       </div>
@@ -228,10 +228,10 @@ export default function PaymentCalculator() {
                   )}
                   
                   <div className="flex justify-center gap-2 pt-4">
-                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                     </button>
-                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                       Clear
                     </button>
                   </div>
@@ -241,7 +241,7 @@ export default function PaymentCalculator() {
 
             {/* Right Column: Results */}
             <div className="md:col-span-7 space-y-6">
-              <div className="bg-surface-container-low border border-outline-variant rounded-md shadow-sm overflow-hidden">
+              <div className="bg-surface-container-low border border-outline-variant rounded-[1px] shadow-sm overflow-hidden">
                 <div className="bg-[#7cb342] text-white p-3 flex justify-between items-center">
                   <span className="font-bold text-lg">{activeTab === 'fixedTerm' ? 'Monthly Payment:' : 'Time to Payoff:'} <span className="text-xl ml-2">{activeTab === 'fixedTerm' ? formatCurrency(results.monthlyPayment) : `${Math.floor(results.years)} years ${Math.ceil((results.years - Math.floor(results.years)) * 12)} months`}</span></span>
                   <div className="w-4 h-4 border border-white flex items-center justify-center text-[10px]">💾</div>
@@ -271,11 +271,11 @@ export default function PaymentCalculator() {
 
                       <div className="mt-8 flex items-center justify-center gap-6">
                         <div className="w-24 h-24 relative">
-                          <div className="w-full h-full rounded-full" style={{
+                          <div className="w-full h-full rounded-[1px]" style={{
                             background: `conic-gradient(#3b82f6 0% ${(results.principal/results.totalPayments)*100}%, #8bc34a ${(results.principal/results.totalPayments)*100}% 100%)`
                           }}></div>
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 bg-surface-container-low rounded-full"></div>
+                            <div className="w-12 h-12 bg-surface-container-low rounded-[1px]"></div>
                           </div>
                           <div className="absolute top-1/2 left-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((results.principal/results.totalPayments)*100)}%</div>
                           <div className="absolute top-1/2 right-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((results.totalInterest/results.totalPayments)*100)}%</div>
@@ -347,8 +347,8 @@ export default function PaymentCalculator() {
           <div className="mt-8">
             <h3 className="font-bold text-primary mb-2">Related</h3>
             <div className="flex gap-2">
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Loan Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Auto Loan Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Loan Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Auto Loan Calculator</button>
             </div>
           </div>
 
@@ -385,11 +385,11 @@ export default function PaymentCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>

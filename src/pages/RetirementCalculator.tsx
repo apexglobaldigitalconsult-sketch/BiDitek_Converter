@@ -232,8 +232,8 @@ export default function RetirementCalculator() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
@@ -243,26 +243,26 @@ export default function RetirementCalculator() {
             <p className="text-sm text-primary/80 mb-4">
               This calculator can help with planning the financial aspects of your retirement, such as providing an idea where you stand in terms of retirement savings, how much to save to reach your target, and what your retrievals will look like in retirement.
             </p>
-            <div className="bg-surface-container p-4 rounded border border-outline-variant max-w-xl">
+            <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant max-w-xl">
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your current age</label>
-                  <input type="number" value={c1CurrentAge} onChange={(e) => setC1CurrentAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c1CurrentAge} onChange={(e) => setC1CurrentAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your planned retirement age</label>
-                  <input type="number" value={c1RetirementAge} onChange={(e) => setC1RetirementAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c1RetirementAge} onChange={(e) => setC1RetirementAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90 flex items-center gap-1">Your life expectancy <HelpCircle className="w-3 h-3 text-gray-400" /></label>
-                  <input type="number" value={c1LifeExpectancy} onChange={(e) => setC1LifeExpectancy(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c1LifeExpectancy} onChange={(e) => setC1LifeExpectancy(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your current pre-tax income</label>
                   <div className="flex items-center gap-2">
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={c1CurrentIncome} onChange={(e) => setC1CurrentIncome(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c1CurrentIncome} onChange={(e) => setC1CurrentIncome(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                     <span className="text-primary/80">/year</span>
                   </div>
@@ -274,7 +274,7 @@ export default function RetirementCalculator() {
                   <label className="text-primary/90">Your current income increase</label>
                   <div className="flex items-center gap-2">
                     <div className="relative w-24">
-                      <input type="number" value={c1IncomeIncrease} onChange={(e) => setC1IncomeIncrease(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c1IncomeIncrease} onChange={(e) => setC1IncomeIncrease(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                     <span className="text-primary/80">/year</span>
@@ -284,7 +284,7 @@ export default function RetirementCalculator() {
                   <label className="text-primary/90 flex items-center gap-1">Income needed after retirement <HelpCircle className="w-3 h-3 text-gray-400" /></label>
                   <div className="flex items-center gap-2">
                     <div className="relative w-24">
-                      <input type="number" value={c1IncomeNeeded} onChange={(e) => setC1IncomeNeeded(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c1IncomeNeeded} onChange={(e) => setC1IncomeNeeded(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                     <span className="text-primary/80">of current income</span>
@@ -294,7 +294,7 @@ export default function RetirementCalculator() {
                   <label className="text-primary/90">Average investment return</label>
                   <div className="flex items-center gap-2">
                     <div className="relative w-24">
-                      <input type="number" value={c1InvestmentReturn} onChange={(e) => setC1InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c1InvestmentReturn} onChange={(e) => setC1InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                     <span className="text-primary/80">/year</span>
@@ -304,7 +304,7 @@ export default function RetirementCalculator() {
                   <label className="text-primary/90 flex items-center gap-1">Inflation rate <HelpCircle className="w-3 h-3 text-gray-400" /></label>
                   <div className="flex items-center gap-2">
                     <div className="relative w-24">
-                      <input type="number" value={c1InflationRate} onChange={(e) => setC1InflationRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c1InflationRate} onChange={(e) => setC1InflationRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                     <span className="text-primary/80">/year</span>
@@ -318,7 +318,7 @@ export default function RetirementCalculator() {
                   <div className="flex items-center gap-2">
                     <div className="relative w-24">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={c1OtherIncome} onChange={(e) => setC1OtherIncome(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c1OtherIncome} onChange={(e) => setC1OtherIncome(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                     <span className="text-primary/80">/month</span>
                     <span className="text-xs text-primary/50"><a href="#" className="text-secondary hover:underline">social security</a>, pension, etc</span>
@@ -328,14 +328,14 @@ export default function RetirementCalculator() {
                   <label className="text-primary/90">Your current retirement savings</label>
                   <div className="relative w-40">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                    <input type="number" value={c1CurrentSavings} onChange={(e) => setC1CurrentSavings(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c1CurrentSavings} onChange={(e) => setC1CurrentSavings(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Future retirement savings</label>
                   <div className="flex items-center gap-2">
                     <div className="relative w-24">
-                      <input type="number" value={c1FutureSavings} onChange={(e) => setC1FutureSavings(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c1FutureSavings} onChange={(e) => setC1FutureSavings(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                     <span className="text-primary/80">of income</span>
@@ -343,17 +343,17 @@ export default function RetirementCalculator() {
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button onClick={calculateC1} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                  <button onClick={calculateC1} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button onClick={() => setC1Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC1Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
             {c1Result && (
-              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded-[1px] max-w-xl">
                 <h3 className="font-bold text-primary mb-2">Results</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -381,50 +381,50 @@ export default function RetirementCalculator() {
             <p className="text-sm text-primary/80 mb-4">
               This calculation presents potential savings plans based on desired savings at retirement.
             </p>
-            <div className="bg-surface-container p-4 rounded border border-outline-variant max-w-xl">
+            <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant max-w-xl">
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your age now</label>
-                  <input type="number" value={c2AgeNow} onChange={(e) => setC2AgeNow(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c2AgeNow} onChange={(e) => setC2AgeNow(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your planned retirement age</label>
-                  <input type="number" value={c2RetirementAge} onChange={(e) => setC2RetirementAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c2RetirementAge} onChange={(e) => setC2RetirementAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Amount needed at the retirement age</label>
                   <div className="relative w-40">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                    <input type="number" value={c2AmountNeeded} onChange={(e) => setC2AmountNeeded(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c2AmountNeeded} onChange={(e) => setC2AmountNeeded(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your retirement savings now</label>
                   <div className="relative w-40">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                    <input type="number" value={c2SavingsNow} onChange={(e) => setC2SavingsNow(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c2SavingsNow} onChange={(e) => setC2SavingsNow(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Average investment return</label>
                   <div className="relative w-40">
-                    <input type="number" value={c2InvestmentReturn} onChange={(e) => setC2InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c2InvestmentReturn} onChange={(e) => setC2InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                   </div>
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button onClick={calculateC2} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                  <button onClick={calculateC2} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button onClick={() => setC2Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC2Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
             {c2Result && (
-              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded-[1px] max-w-xl">
                 <h3 className="font-bold text-primary mb-2">Results</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -446,68 +446,68 @@ export default function RetirementCalculator() {
             <p className="text-sm text-primary/80 mb-4">
               This calculation estimates the amount a person can withdraw every month in retirement.
             </p>
-            <div className="bg-surface-container p-4 rounded border border-outline-variant max-w-xl">
+            <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant max-w-xl">
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your age now</label>
-                  <input type="number" value={c3AgeNow} onChange={(e) => setC3AgeNow(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c3AgeNow} onChange={(e) => setC3AgeNow(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your planned retirement age</label>
-                  <input type="number" value={c3RetirementAge} onChange={(e) => setC3RetirementAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c3RetirementAge} onChange={(e) => setC3RetirementAge(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your life expectancy</label>
-                  <input type="number" value={c3LifeExpectancy} onChange={(e) => setC3LifeExpectancy(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                  <input type="number" value={c3LifeExpectancy} onChange={(e) => setC3LifeExpectancy(e.target.value)} className="w-40 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Your retirement savings today</label>
                   <div className="relative w-40">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                    <input type="number" value={c3SavingsToday} onChange={(e) => setC3SavingsToday(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c3SavingsToday} onChange={(e) => setC3SavingsToday(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Annual contribution</label>
                   <div className="relative w-40">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                    <input type="number" value={c3AnnualContribution} onChange={(e) => setC3AnnualContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c3AnnualContribution} onChange={(e) => setC3AnnualContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Monthly contribution</label>
                   <div className="relative w-40">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                    <input type="number" value={c3MonthlyContribution} onChange={(e) => setC3MonthlyContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c3MonthlyContribution} onChange={(e) => setC3MonthlyContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Average investment return</label>
                   <div className="relative w-40">
-                    <input type="number" value={c3InvestmentReturn} onChange={(e) => setC3InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c3InvestmentReturn} onChange={(e) => setC3InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Inflation rate (annual)</label>
                   <div className="relative w-40">
-                    <input type="number" value={c3InflationRate} onChange={(e) => setC3InflationRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c3InflationRate} onChange={(e) => setC3InflationRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                   </div>
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button onClick={calculateC3} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                  <button onClick={calculateC3} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button onClick={() => setC3Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC3Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
             {c3Result && (
-              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded-[1px] max-w-xl">
                 <h3 className="font-bold text-primary mb-2">Results</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -529,13 +529,13 @@ export default function RetirementCalculator() {
             <p className="text-sm text-primary/80 mb-4">
               This calculator estimates how long your savings can last at a given withdrawal rate.
             </p>
-            <div className="bg-surface-container p-4 rounded border border-outline-variant max-w-xl">
+            <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant max-w-xl">
               <div className="space-y-3 text-sm">
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">The amount you have</label>
                   <div className="relative w-40">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                    <input type="number" value={c4AmountHave} onChange={(e) => setC4AmountHave(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c4AmountHave} onChange={(e) => setC4AmountHave(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
@@ -543,7 +543,7 @@ export default function RetirementCalculator() {
                   <div className="flex items-center gap-2">
                     <div className="relative w-32">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={c4WithdrawAmount} onChange={(e) => setC4WithdrawAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={c4WithdrawAmount} onChange={(e) => setC4WithdrawAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                     <span className="text-primary/80">/month</span>
                   </div>
@@ -551,23 +551,23 @@ export default function RetirementCalculator() {
                 <div className="flex items-center justify-between">
                   <label className="text-primary/90">Average investment return</label>
                   <div className="relative w-40">
-                    <input type="number" value={c4InvestmentReturn} onChange={(e) => setC4InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                    <input type="number" value={c4InvestmentReturn} onChange={(e) => setC4InvestmentReturn(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                   </div>
                 </div>
 
                 <div className="flex justify-center gap-2 pt-4">
-                  <button onClick={calculateC4} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                  <button onClick={calculateC4} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                    Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                   </button>
-                  <button onClick={() => setC4Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                  <button onClick={() => setC4Result(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                     Clear
                   </button>
                 </div>
               </div>
             </div>
             {c4Result && (
-              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded max-w-xl">
+              <div className="mt-4 bg-surface-container-low p-4 border border-outline-variant rounded-[1px] max-w-xl">
                 <h3 className="font-bold text-primary mb-2">Results</h3>
                 <div className="text-sm">
                   {c4Result.lastsForever ? (
@@ -586,9 +586,9 @@ export default function RetirementCalculator() {
           <div className="mt-8">
             <h3 className="font-bold text-primary mb-2">Related</h3>
             <div className="flex gap-2">
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">401K Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Roth IRA Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Investment Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">401K Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Roth IRA Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Investment Calculator</button>
             </div>
           </div>
 
@@ -671,11 +671,11 @@ export default function RetirementCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>

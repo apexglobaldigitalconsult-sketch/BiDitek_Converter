@@ -170,12 +170,12 @@ export default function MortgageCalculator() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* Left Column: Inputs */}
             <div className="md:col-span-5 space-y-6">
-          <div className="bg-secondary text-white p-3 rounded-t-md flex items-center justify-between cursor-pointer">
+          <div className="bg-secondary text-white p-3 rounded-[1px] flex items-center justify-between cursor-pointer">
             <span className="font-semibold">Modify the values and click the Calculate button to use</span>
             <span className="text-xl">▼</span>
           </div>
           
-          <div className="bg-surface-container-low p-6 border border-outline-variant rounded-b-md shadow-sm space-y-4">
+          <div className="bg-surface-container-low p-6 border border-outline-variant rounded-[1px] shadow-sm space-y-4">
             
             <div className="flex items-center justify-between">
               <label className="text-sm text-primary/80 font-medium">Home Price</label>
@@ -185,7 +185,7 @@ export default function MortgageCalculator() {
                   type="number" 
                   value={homePrice}
                   onChange={handleHomePriceChange}
-                  className="w-full pl-6 pr-3 py-1.5 border border-outline-variant rounded text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
+                  className="w-full pl-6 pr-3 py-1.5 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
                 />
               </div>
             </div>
@@ -200,7 +200,7 @@ export default function MortgageCalculator() {
                     type="number" 
                     value={downPaymentPercent}
                     onChange={handleDownPaymentPercentChange}
-                    className="w-full pr-4 py-1.5 border border-outline-variant rounded text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
+                    className="w-full pr-4 py-1.5 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
                   />
                   <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-xs">%</span>
                 </div>
@@ -210,7 +210,7 @@ export default function MortgageCalculator() {
                     type="number" 
                     value={downPaymentAmount}
                     onChange={handleDownPaymentAmountChange}
-                    className="w-full pl-5 pr-2 py-1.5 border border-outline-variant rounded text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
+                    className="w-full pl-5 pr-2 py-1.5 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
                   />
                 </div>
               </div>
@@ -223,7 +223,7 @@ export default function MortgageCalculator() {
                   type="number" 
                   value={loanTerm}
                   onChange={(e) => setLoanTerm(e.target.value)}
-                  className="w-full pr-12 py-1.5 border border-outline-variant rounded text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
+                  className="w-full pr-12 py-1.5 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
                 />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-primary/50 text-sm">years</span>
               </div>
@@ -239,7 +239,7 @@ export default function MortgageCalculator() {
                   step="0.01"
                   value={interestRate}
                   onChange={(e) => setInterestRate(e.target.value)}
-                  className="w-full pr-6 py-1.5 border border-outline-variant rounded text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
+                  className="w-full pr-6 py-1.5 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none"
                 />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
               </div>
@@ -251,7 +251,7 @@ export default function MortgageCalculator() {
                 <select 
                   value={startMonth}
                   onChange={(e) => setStartMonth(e.target.value)}
-                  className="w-1/2 py-1.5 px-2 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm"
+                  className="w-1/2 py-1.5 px-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm"
                 >
                   {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map(m => (
                     <option key={m} value={m}>{m}</option>
@@ -261,7 +261,7 @@ export default function MortgageCalculator() {
                   type="number" 
                   value={startYear}
                   onChange={(e) => setStartYear(e.target.value)}
-                  className="w-1/2 py-1.5 px-2 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm"
+                  className="w-1/2 py-1.5 px-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm"
                 />
               </div>
             </div>
@@ -272,7 +272,7 @@ export default function MortgageCalculator() {
                   type="checkbox" 
                   checked={includeTaxes}
                   onChange={(e) => setIncludeTaxes(e.target.checked)}
-                  className="w-4 h-4 text-blue-600 rounded focus:ring-secondary"
+                  className="w-4 h-4 text-blue-600 rounded-[1px] focus:ring-secondary"
                 />
                 <span className="text-sm font-bold text-primary/90">Include Taxes & Costs Below</span>
               </label>
@@ -292,7 +292,7 @@ export default function MortgageCalculator() {
                         value={propertyTaxesPercent}
                         onChange={handlePropertyTaxesPercentChange}
                         disabled={!includeTaxes}
-                        className="w-full pr-4 py-1 border border-outline-variant rounded text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
+                        className="w-full pr-4 py-1 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
                       />
                       <span className="absolute right-1 top-1/2 -translate-y-1/2 text-primary/50 text-xs">%</span>
                     </div>
@@ -303,7 +303,7 @@ export default function MortgageCalculator() {
                         value={propertyTaxesAmount}
                         onChange={handlePropertyTaxesAmountChange}
                         disabled={!includeTaxes}
-                        className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
+                        className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
                       />
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export default function MortgageCalculator() {
                       value={homeInsurance}
                       onChange={(e) => setHomeInsurance(e.target.value)}
                       disabled={!includeTaxes}
-                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
+                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
                     />
                   </div>
                 </div>
@@ -336,7 +336,7 @@ export default function MortgageCalculator() {
                       value={pmiInsurance}
                       onChange={(e) => setPmiInsurance(e.target.value)}
                       disabled={!includeTaxes}
-                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
+                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
                     />
                   </div>
                 </div>
@@ -352,7 +352,7 @@ export default function MortgageCalculator() {
                       value={hoaFee}
                       onChange={(e) => setHoaFee(e.target.value)}
                       disabled={!includeTaxes}
-                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
+                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
                     />
                   </div>
                 </div>
@@ -368,7 +368,7 @@ export default function MortgageCalculator() {
                       value={otherCosts}
                       onChange={(e) => setOtherCosts(e.target.value)}
                       disabled={!includeTaxes}
-                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
+                      className="w-full pl-5 pr-2 py-1 border border-outline-variant rounded-[1px] text-right bg-surface-container-low text-primary disabled:opacity-50 focus:ring-2 focus:ring-secondary outline-none text-sm"
                     />
                   </div>
                 </div>
@@ -379,10 +379,10 @@ export default function MortgageCalculator() {
               </div>
 
               <div className="mt-6 flex gap-2">
-                <button className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded font-semibold flex items-center justify-center gap-2">
+                <button className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-[1px] font-semibold flex items-center justify-center gap-2">
                   Calculate <span className="text-xs">▶</span>
                 </button>
-                <button className="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 rounded font-semibold">
+                <button className="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-[1px] font-semibold">
                   Clear
                 </button>
               </div>
@@ -392,7 +392,7 @@ export default function MortgageCalculator() {
 
         {/* Right Column: Results */}
         <div className="md:col-span-7 space-y-6">
-          <div className="bg-surface-container-low border border-outline-variant rounded-md shadow-sm overflow-hidden">
+          <div className="bg-surface-container-low border border-outline-variant rounded-[1px] shadow-sm overflow-hidden">
             <div className="bg-green-600 text-white p-3 flex justify-between items-center">
               <span className="font-bold">Monthly Pay:</span>
               <span className="text-xl font-bold">{formatCurrencyDecimals(results.total)}</span>
@@ -443,7 +443,7 @@ export default function MortgageCalculator() {
               <div className="mt-6 flex flex-col md:flex-row items-center gap-6">
                 <div className="w-32 h-32 relative">
                   {/* Simple CSS Pie Chart representation */}
-                  <div className="w-full h-full rounded-full" style={{
+                  <div className="w-full h-full rounded-[1px]" style={{
                     background: `conic-gradient(
                       #3b82f6 0% ${(results.principalAndInterest/results.total)*100}%, 
                       #10b981 ${(results.principalAndInterest/results.total)*100}% ${((results.principalAndInterest+results.propertyTax)/results.total)*100}%, 
@@ -452,7 +452,7 @@ export default function MortgageCalculator() {
                     )`
                   }}></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-surface-container-low rounded-full"></div>
+                    <div className="w-16 h-16 bg-surface-container-low rounded-[1px]"></div>
                   </div>
                 </div>
                 <div className="space-y-2 text-sm">
@@ -500,8 +500,8 @@ export default function MortgageCalculator() {
               <span className="text-primary/60">10 Years: <a href="#" className="text-secondary hover:underline">5.447%</a></span>
             </div>
             <div className="flex justify-center gap-2">
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm font-semibold">See your local rates</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm font-semibold">Get pre-approval</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm font-semibold">See your local rates</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm font-semibold">Get pre-approval</button>
             </div>
           </div>
         </div>
@@ -638,11 +638,11 @@ export default function MortgageCalculator() {
       {/* Sidebar */}
       <div className="lg:col-span-3 space-y-6">
         <div className="flex gap-2 mb-4">
-          <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-          <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+          <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+          <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
         </div>
 
-        <div className="border border-blue-600 rounded overflow-hidden">
+        <div className="border border-blue-600 rounded-[1px] overflow-hidden">
           <div className="bg-secondary text-white p-2 font-bold text-sm">
             Financial Calculators
           </div>

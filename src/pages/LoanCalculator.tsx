@@ -95,8 +95,8 @@ export default function LoanCalculator() {
             </ol>
           </div>
 
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
@@ -107,24 +107,24 @@ export default function LoanCalculator() {
             
             <div className="flex flex-col md:flex-row gap-4">
               {/* Inputs */}
-              <div className="bg-surface-container p-4 rounded border border-outline-variant w-full md:w-[350px] flex-shrink-0">
+              <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant w-full md:w-[350px] flex-shrink-0">
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Loan Amount</label>
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={amortizedAmount} onChange={(e) => setAmortizedAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={amortizedAmount} onChange={(e) => setAmortizedAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Loan Term</label>
                     <div className="flex gap-1 w-40">
                       <div className="relative w-1/2">
-                        <input type="number" value={amortizedYears} onChange={(e) => setAmortizedYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={amortizedYears} onChange={(e) => setAmortizedYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-xs">years</span>
                       </div>
                       <div className="relative w-1/2">
-                        <input type="number" value={amortizedMonths} onChange={(e) => setAmortizedMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={amortizedMonths} onChange={(e) => setAmortizedMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-1 top-1/2 -translate-y-1/2 text-primary/50 text-xs">months</span>
                       </div>
                     </div>
@@ -132,29 +132,29 @@ export default function LoanCalculator() {
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Interest Rate</label>
                     <div className="relative w-40">
-                      <input type="number" step="0.01" value={amortizedRate} onChange={(e) => setAmortizedRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.01" value={amortizedRate} onChange={(e) => setAmortizedRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Compound</label>
-                    <select value={amortizedCompound} onChange={(e) => setAmortizedCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                    <select value={amortizedCompound} onChange={(e) => setAmortizedCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                       <option>Monthly (APR)</option>
                       <option>Annually (APY)</option>
                     </select>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Pay Back</label>
-                    <select value={amortizedPayBack} onChange={(e) => setAmortizedPayBack(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                    <select value={amortizedPayBack} onChange={(e) => setAmortizedPayBack(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                       <option>Every Month</option>
                       <option>Every Year</option>
                     </select>
                   </div>
                   <div className="flex justify-center gap-2 pt-2">
-                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                     </button>
-                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                       Clear
                     </button>
                   </div>
@@ -183,11 +183,11 @@ export default function LoanCalculator() {
                   
                   <div className="flex items-center justify-center gap-6 mt-6">
                     <div className="w-20 h-20 relative">
-                      <div className="w-full h-full rounded-full" style={{
+                      <div className="w-full h-full rounded-[1px]" style={{
                         background: `conic-gradient(#3b82f6 0% ${(amortizedResults.principal/amortizedResults.totalPayments)*100}%, #8bc34a ${(amortizedResults.principal/amortizedResults.totalPayments)*100}% 100%)`
                       }}></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-10 h-10 bg-surface-container-low rounded-full"></div>
+                        <div className="w-10 h-10 bg-surface-container-low rounded-[1px]"></div>
                       </div>
                       <div className="absolute top-1/2 left-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((amortizedResults.principal/amortizedResults.totalPayments)*100)}%</div>
                       <div className="absolute top-1/2 right-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((amortizedResults.totalInterest/amortizedResults.totalPayments)*100)}%</div>
@@ -211,24 +211,24 @@ export default function LoanCalculator() {
             
             <div className="flex flex-col md:flex-row gap-4">
               {/* Inputs */}
-              <div className="bg-surface-container p-4 rounded border border-outline-variant w-full md:w-[350px] flex-shrink-0">
+              <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant w-full md:w-[350px] flex-shrink-0">
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Loan Amount</label>
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={deferredAmount} onChange={(e) => setDeferredAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={deferredAmount} onChange={(e) => setDeferredAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Loan Term</label>
                     <div className="flex gap-1 w-40">
                       <div className="relative w-1/2">
-                        <input type="number" value={deferredYears} onChange={(e) => setDeferredYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={deferredYears} onChange={(e) => setDeferredYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-xs">years</span>
                       </div>
                       <div className="relative w-1/2">
-                        <input type="number" value={deferredMonths} onChange={(e) => setDeferredMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={deferredMonths} onChange={(e) => setDeferredMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-1 top-1/2 -translate-y-1/2 text-primary/50 text-xs">months</span>
                       </div>
                     </div>
@@ -236,22 +236,22 @@ export default function LoanCalculator() {
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Interest Rate</label>
                     <div className="relative w-40">
-                      <input type="number" step="0.01" value={deferredRate} onChange={(e) => setDeferredRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.01" value={deferredRate} onChange={(e) => setDeferredRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Compound</label>
-                    <select value={deferredCompound} onChange={(e) => setDeferredCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                    <select value={deferredCompound} onChange={(e) => setDeferredCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                       <option>Annually (APY)</option>
                       <option>Monthly (APR)</option>
                     </select>
                   </div>
                   <div className="flex justify-center gap-2 pt-2">
-                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                     </button>
-                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                       Clear
                     </button>
                   </div>
@@ -276,11 +276,11 @@ export default function LoanCalculator() {
                   
                   <div className="flex items-center justify-center gap-6 mt-6">
                     <div className="w-20 h-20 relative">
-                      <div className="w-full h-full rounded-full" style={{
+                      <div className="w-full h-full rounded-[1px]" style={{
                         background: `conic-gradient(#3b82f6 0% ${(deferredResults.principal/deferredResults.amountDue)*100}%, #8bc34a ${(deferredResults.principal/deferredResults.amountDue)*100}% 100%)`
                       }}></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-10 h-10 bg-surface-container-low rounded-full"></div>
+                        <div className="w-10 h-10 bg-surface-container-low rounded-[1px]"></div>
                       </div>
                       <div className="absolute top-1/2 left-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((deferredResults.principal/deferredResults.amountDue)*100)}%</div>
                       <div className="absolute top-1/2 right-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((deferredResults.totalInterest/deferredResults.amountDue)*100)}%</div>
@@ -305,24 +305,24 @@ export default function LoanCalculator() {
             
             <div className="flex flex-col md:flex-row gap-4">
               {/* Inputs */}
-              <div className="bg-surface-container p-4 rounded border border-outline-variant w-full md:w-[350px] flex-shrink-0">
+              <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant w-full md:w-[350px] flex-shrink-0">
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90 leading-tight">Predetermined<br/>Due Amount</label>
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={bondAmount} onChange={(e) => setBondAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={bondAmount} onChange={(e) => setBondAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Loan Term</label>
                     <div className="flex gap-1 w-40">
                       <div className="relative w-1/2">
-                        <input type="number" value={bondYears} onChange={(e) => setBondYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={bondYears} onChange={(e) => setBondYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-xs">years</span>
                       </div>
                       <div className="relative w-1/2">
-                        <input type="number" value={bondMonths} onChange={(e) => setBondMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={bondMonths} onChange={(e) => setBondMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-1 top-1/2 -translate-y-1/2 text-primary/50 text-xs">months</span>
                       </div>
                     </div>
@@ -330,22 +330,22 @@ export default function LoanCalculator() {
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Interest Rate</label>
                     <div className="relative w-40">
-                      <input type="number" step="0.01" value={bondRate} onChange={(e) => setBondRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.01" value={bondRate} onChange={(e) => setBondRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Compound</label>
-                    <select value={bondCompound} onChange={(e) => setBondCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                    <select value={bondCompound} onChange={(e) => setBondCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                       <option>Annually (APY)</option>
                       <option>Monthly (APR)</option>
                     </select>
                   </div>
                   <div className="flex justify-center gap-2 pt-2">
-                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                     </button>
-                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                       Clear
                     </button>
                   </div>
@@ -370,11 +370,11 @@ export default function LoanCalculator() {
                   
                   <div className="flex items-center justify-center gap-6 mt-6">
                     <div className="w-20 h-20 relative">
-                      <div className="w-full h-full rounded-full" style={{
+                      <div className="w-full h-full rounded-[1px]" style={{
                         background: `conic-gradient(#3b82f6 0% ${(bondResults.amountReceived/bondResults.principal)*100}%, #8bc34a ${(bondResults.amountReceived/bondResults.principal)*100}% 100%)`
                       }}></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-10 h-10 bg-surface-container-low rounded-full"></div>
+                        <div className="w-10 h-10 bg-surface-container-low rounded-[1px]"></div>
                       </div>
                       <div className="absolute top-1/2 left-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((bondResults.amountReceived/bondResults.principal)*100)}%</div>
                       <div className="absolute top-1/2 right-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((bondResults.totalInterest/bondResults.principal)*100)}%</div>
@@ -453,11 +453,11 @@ export default function LoanCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>

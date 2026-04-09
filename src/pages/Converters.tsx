@@ -39,14 +39,14 @@ export default function Converters() {
             {/* Drag & Drop */}
             <div className="group relative rounded-[1px] bg-surface-container-low p-16 text-center border-2 border-dashed border-outline-variant/30 hover:border-secondary/40 transition-all cursor-pointer">
               <div className="flex flex-col items-center space-y-8">
-                <div className="w-24 h-24 rounded-full bg-surface-container flex items-center justify-center text-secondary shadow-sm group-hover:scale-110 transition-transform">
+                <div className="w-24 h-24 rounded-[1px] bg-surface-container flex items-center justify-center text-secondary shadow-sm group-hover:scale-110 transition-transform">
                   <Upload className="w-10 h-10" />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-3xl font-headline font-bold tracking-tight">Drag & drop your file here</h3>
                   <p className="text-primary/40 font-body text-lg">Supports PDF, DOCX, JPG, PNG and 100+ more</p>
                 </div>
-                <button className="bg-secondary text-white px-12 py-5 rounded-full font-headline font-bold text-xl hover:opacity-90 transition-all">
+                <button className="bg-secondary text-white px-12 py-5 rounded-[1px] font-headline font-bold text-xl hover:opacity-90 transition-all">
                   Browse Files
                 </button>
               </div>
@@ -59,7 +59,7 @@ export default function Converters() {
               className="bg-surface-container rounded-[1px] p-6 flex items-center justify-between border border-outline-variant/30 shadow-sm"
             >
               <div className="flex items-center gap-6">
-                <div className="w-14 h-14 bg-surface-container-low rounded-xl flex items-center justify-center text-primary border border-outline-variant/10">
+                <div className="w-14 h-14 bg-surface-container-low rounded-[1px] flex items-center justify-center text-primary border border-outline-variant/10">
                   <FileText className="w-8 h-8" />
                 </div>
                 <div>
@@ -67,7 +67,7 @@ export default function Converters() {
                   <p className="text-sm text-primary/40 font-label">2.4 MB</p>
                 </div>
               </div>
-              <button className="p-3 hover:bg-red-500/10 hover:text-red-500 rounded-full transition-colors">
+              <button className="p-3 hover:bg-red-500/10 hover:text-red-500 rounded-[1px] transition-colors">
                 <X className="w-6 h-6" />
               </button>
             </motion.div>
@@ -85,7 +85,7 @@ export default function Converters() {
                   </div>
                 </div>
                 <div className="md:col-span-3 flex justify-center">
-                  <button className="w-16 h-16 rounded-full bg-primary text-background flex items-center justify-center hover:rotate-180 transition-transform duration-700 shadow-md">
+                  <button className="w-16 h-16 rounded-[1px] bg-primary text-background flex items-center justify-center hover:rotate-180 transition-transform duration-700 shadow-md">
                     <Repeat className="w-8 h-8" />
                   </button>
                 </div>
@@ -166,7 +166,7 @@ export default function Converters() {
                   key={cat}
                   onClick={() => setUnitCategory(cat)}
                   className={cn(
-                    "px-10 py-4 rounded-full font-headline font-bold text-sm uppercase tracking-widest transition-all",
+                    "px-10 py-4 rounded-[1px] font-headline font-bold text-sm uppercase tracking-widest transition-all",
                     unitCategory === cat 
                       ? "bg-secondary text-white shadow-lg shadow-secondary/20" 
                       : "bg-surface-container text-primary/30 hover:text-primary"
@@ -209,7 +209,7 @@ export default function Converters() {
 
               {/* Result Card */}
               <div className="bg-primary text-background rounded-[1px] p-16 relative overflow-hidden editorial-shadow">
-                <div className="absolute -right-24 -top-24 w-80 h-80 bg-secondary/20 rounded-full blur-[100px]" />
+                <div className="absolute -right-24 -top-24 w-80 h-80 bg-secondary/20 rounded-[1px] blur-[100px]" />
                 <div className="relative z-10 space-y-6">
                   <p className="font-label text-sm uppercase tracking-[0.3em] text-background/60 font-bold">Converted Result</p>
                   <div className="space-y-2">

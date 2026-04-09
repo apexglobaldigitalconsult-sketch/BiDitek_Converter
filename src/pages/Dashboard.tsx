@@ -70,9 +70,9 @@ export default function Dashboard() {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-surface-container-low px-4 py-1.5 rounded-full border border-outline-variant mb-8 shadow-sm"
+              className="inline-flex items-center gap-2 bg-surface-container-low px-4 py-1.5 rounded-[1px] border border-outline-variant mb-8 shadow-sm"
             >
-              <span className="w-2 h-2 bg-secondary rounded-full" />
+              <span className="w-2 h-2 bg-secondary rounded-[1px]" />
               <span className="text-primary/60 font-label text-[10px] font-black tracking-wide uppercase">200+ Tools Available</span>
             </motion.div>
 
@@ -102,7 +102,7 @@ export default function Dashboard() {
               transition={{ delay: 0.3 }}
               className="relative max-w-3xl mx-auto lg:mx-0"
             >
-              <div className="flex p-1.5 bg-surface-container-low rounded-full border border-outline-variant shadow-sm focus-within:ring-4 focus-within:ring-secondary/5 transition-all">
+              <div className="flex p-1.5 bg-surface-container-low rounded-[1px] border border-outline-variant shadow-sm focus-within:ring-4 focus-within:ring-secondary/5 transition-all">
                 <div className="flex-1 flex items-center px-6">
                   <Search className="w-5 h-5 text-primary/40 mr-4" />
                   <input 
@@ -111,7 +111,7 @@ export default function Dashboard() {
                     className="w-full bg-transparent border-none focus:ring-0 py-3 text-lg font-body placeholder:text-primary/40 text-primary"
                   />
                 </div>
-                <button className="bg-secondary text-white px-10 py-3 rounded-full font-headline font-bold hover:opacity-90 transition-all">
+                <button className="bg-secondary text-white px-10 py-3 rounded-[1px] font-headline font-bold hover:opacity-90 transition-all">
                   Search
                 </button>
               </div>
@@ -162,18 +162,19 @@ export default function Dashboard() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="group bg-surface-container-low p-8 rounded-[1px] border border-outline-variant/30 hover:border-secondary/20 transition-all duration-500 shadow-sm hover:shadow-md cursor-pointer relative"
+              className="group bg-surface-container-low p-8 rounded-[1px] border border-outline-variant/50 hover:border-secondary/30 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(63,25,156,0.1)] hover:shadow-[0_10px_30px_-10px_rgba(63,25,156,0.2)] cursor-pointer relative overflow-hidden"
             >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/5 to-transparent rounded-[1px]-[1px] -z-10 transition-transform duration-500 group-hover:scale-110"></div>
               {tool.popular && (
-                <div className="absolute top-6 right-6 bg-secondary text-white text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded-[1px]">
+                <div className="absolute top-6 right-6 bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-[1px]">
                   Popular
                 </div>
               )}
-              <div className={cn("w-12 h-12 rounded-[1px] flex items-center justify-center mb-6", tool.color)}>
-                <tool.icon className="w-6 h-6" />
+              <div className={cn("w-14 h-14 rounded-[1px] flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3", tool.color.replace('bg-surface-container', 'bg-secondary/10 text-secondary'))}>
+                <tool.icon className="w-7 h-7" />
               </div>
-              <h4 className="text-xl font-headline font-bold mb-2">{tool.title}</h4>
-              <p className="text-primary/50 font-body text-sm leading-relaxed">{tool.desc}</p>
+              <h4 className="text-xl font-headline font-bold mb-3">{tool.title}</h4>
+              <p className="text-primary/60 font-body text-sm leading-relaxed">{tool.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -187,14 +188,14 @@ export default function Dashboard() {
             <a 
               key={cat.name}
               href="#" 
-              className="group flex items-center gap-6 p-6 bg-surface-container-low rounded-[1px] border border-outline-variant/30 hover:border-secondary/20 transition-all duration-500 shadow-sm hover:shadow-md"
+              className="group flex items-center gap-6 p-6 bg-surface-container-low rounded-[1px] border border-outline-variant/50 hover:border-secondary/30 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(63,25,156,0.1)] hover:shadow-[0_10px_30px_-10px_rgba(63,25,156,0.2)]"
             >
-              <div className={cn("w-12 h-12 flex items-center justify-center rounded-[1px] shrink-0", cat.color)}>
-                <cat.icon className="w-6 h-6 text-white" />
+              <div className={cn("w-14 h-14 flex items-center justify-center rounded-[1px] shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3", cat.color)}>
+                <cat.icon className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h4 className="font-headline font-bold text-lg text-primary">{cat.name}</h4>
-                <p className="text-xs text-primary/50 font-body">{cat.desc}</p>
+                <h4 className="font-headline font-bold text-lg text-primary mb-1">{cat.name}</h4>
+                <p className="text-sm text-primary/60 font-body">{cat.desc}</p>
               </div>
             </a>
           ))}

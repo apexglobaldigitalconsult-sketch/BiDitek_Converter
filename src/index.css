@@ -1,39 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #F8F9FA;
-  --primary: #1A1C1E;
-  --secondary: #e65719;
-  --secondary-container: #FFDBCB;
+  --background: #F4F5F9;
+  --primary: #2D2D2D;
+  --secondary: #3F199C;
+  --secondary-container: #E8E3FF;
   --surface-container-low: #FFFFFF;
-  --surface-container: #F1F3F4;
-  --surface-container-high: #E8EAED;
-  --surface-container-highest: #DADCE0;
+  --surface-container: #F4F5F9;
+  --surface-container-high: #EAEBEE;
+  --surface-container-highest: #DFE0E4;
   --surface-bright: #FFFFFF;
-  --on-surface: #1A1C1E;
-  --outline-variant: #C4C7C5;
+  --on-surface: #2D2D2D;
+  --outline-variant: #EAEBEE;
 }
 
 .dark {
-  --background: #0B0C0E;
-  --primary: #F1F3F4;
-  --secondary: #e65719;
-  --secondary-container: #4A1D00;
-  --surface-container-low: #15171A;
-  --surface-container: #1C1F23;
-  --surface-container-high: #25282C;
-  --surface-container-highest: #2D3136;
-  --surface-bright: #1C1F23;
-  --on-surface: #F1F3F4;
-  --outline-variant: #2D3136;
+  --background: #0F1015;
+  --primary: #F4F5F9;
+  --secondary: #5B32D9;
+  --secondary-container: #2A1A5E;
+  --surface-container-low: #1A1B23;
+  --surface-container: #22232D;
+  --surface-container-high: #2A2B36;
+  --surface-container-highest: #323440;
+  --surface-bright: #22232D;
+  --on-surface: #F4F5F9;
+  --outline-variant: #323440;
 }
 
 @theme {
-  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
-  --font-headline: "Jost", sans-serif;
-  --font-body: "Jost", sans-serif;
-  --font-label: "Jost", sans-serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Figtree", sans-serif;
+  --font-body: "Figtree", sans-serif;
+  --font-label: "Figtree", sans-serif;
 
   --color-background: var(--background);
   --color-primary: var(--primary);
@@ -65,7 +65,7 @@
 
 @layer utilities {
   .editorial-shadow {
-    box-shadow: 0 24px 48px -12px rgba(13, 27, 42, 0.06);
+    box-shadow: 0 10px 30px -10px rgba(63, 25, 156, 0.1);
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;

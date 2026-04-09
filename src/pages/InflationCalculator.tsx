@@ -100,8 +100,8 @@ export default function InflationCalculator() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
@@ -111,30 +111,30 @@ export default function InflationCalculator() {
             <p className="text-sm text-primary/80 mb-4">
               Calculates the equivalent value of the U.S. dollar in any month from 1913 to 2026. Calculations are based on the average <a href="#" className="text-secondary hover:underline">Consumer Price Index (CPI)</a> data for all urban consumers in the U.S.
             </p>
-            <div className="bg-surface-container p-4 border border-outline-variant rounded flex flex-wrap items-center gap-3 text-sm text-primary/90">
+            <div className="bg-surface-container p-4 border border-outline-variant rounded-[1px] flex flex-wrap items-center gap-3 text-sm text-primary/90">
               <span>$</span>
-              <input type="number" value={cpiAmount} onChange={(e) => setCpiAmount(e.target.value)} className="w-24 px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary" />
+              <input type="number" value={cpiAmount} onChange={(e) => setCpiAmount(e.target.value)} className="w-24 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary" />
               <span>in</span>
-              <select value={cpiStartMonth} onChange={(e) => setCpiStartMonth(e.target.value)} className="px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary">
+              <select value={cpiStartMonth} onChange={(e) => setCpiStartMonth(e.target.value)} className="px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary">
                 {months.map(m => <option key={m} value={m}>{m}</option>)}
               </select>
-              <select value={cpiStartYear} onChange={(e) => setCpiStartYear(e.target.value)} className="px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary">
+              <select value={cpiStartYear} onChange={(e) => setCpiStartYear(e.target.value)} className="px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary">
                 {years.map(y => <option key={y} value={y}>{y}</option>)}
               </select>
               <span className="font-bold text-lg">= {cpiResult ? `$${cpiResult}` : '?'}</span>
               <span>in</span>
-              <select value={cpiEndMonth} onChange={(e) => setCpiEndMonth(e.target.value)} className="px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary">
+              <select value={cpiEndMonth} onChange={(e) => setCpiEndMonth(e.target.value)} className="px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary">
                 {months.map(m => <option key={m} value={m}>{m}</option>)}
               </select>
-              <select value={cpiEndYear} onChange={(e) => setCpiEndYear(e.target.value)} className="px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary">
+              <select value={cpiEndYear} onChange={(e) => setCpiEndYear(e.target.value)} className="px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary">
                 {years.map(y => <option key={y} value={y}>{y}</option>)}
               </select>
             </div>
             <div className="flex justify-center gap-2 mt-4">
-              <button onClick={calculateCpi} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+              <button onClick={calculateCpi} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
               </button>
-              <button onClick={() => setCpiResult(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+              <button onClick={() => setCpiResult(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                 Clear
               </button>
             </div>
@@ -146,22 +146,22 @@ export default function InflationCalculator() {
             <p className="text-sm text-primary/80 mb-4">
               Calculates an inflation based on a certain average inflation rate <strong>after some years</strong>.
             </p>
-            <div className="bg-surface-container p-4 border border-outline-variant rounded flex flex-wrap items-center gap-3 text-sm text-primary/90">
+            <div className="bg-surface-container p-4 border border-outline-variant rounded-[1px] flex flex-wrap items-center gap-3 text-sm text-primary/90">
               <span>$</span>
-              <input type="number" value={fwdAmount} onChange={(e) => setFwdAmount(e.target.value)} className="w-24 px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary" />
+              <input type="number" value={fwdAmount} onChange={(e) => setFwdAmount(e.target.value)} className="w-24 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary" />
               <span>with inflation rate</span>
-              <input type="number" value={fwdRate} onChange={(e) => setFwdRate(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary" />
+              <input type="number" value={fwdRate} onChange={(e) => setFwdRate(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary" />
               <span>%</span>
               <span>after</span>
-              <input type="number" value={fwdYears} onChange={(e) => setFwdYears(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary" />
+              <input type="number" value={fwdYears} onChange={(e) => setFwdYears(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary" />
               <span>years</span>
               <span className="font-bold text-lg">= {fwdResult ? `$${fwdResult}` : '?'}</span>
             </div>
             <div className="flex justify-center gap-2 mt-4">
-              <button onClick={calculateForward} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+              <button onClick={calculateForward} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
               </button>
-              <button onClick={() => setFwdResult(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+              <button onClick={() => setFwdResult(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                 Clear
               </button>
             </div>
@@ -173,21 +173,21 @@ export default function InflationCalculator() {
             <p className="text-sm text-primary/80 mb-4">
               Calculates the equivalent purchasing power of an amount <strong>some years ago</strong> based on a certain average inflation rate.
             </p>
-            <div className="bg-surface-container p-4 border border-outline-variant rounded flex flex-wrap items-center gap-3 text-sm text-primary/90">
+            <div className="bg-surface-container p-4 border border-outline-variant rounded-[1px] flex flex-wrap items-center gap-3 text-sm text-primary/90">
               <span>$</span>
-              <input type="number" value={bwdAmount} onChange={(e) => setBwdAmount(e.target.value)} className="w-24 px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary" />
+              <input type="number" value={bwdAmount} onChange={(e) => setBwdAmount(e.target.value)} className="w-24 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary" />
               <span>with inflation rate</span>
-              <input type="number" value={bwdRate} onChange={(e) => setBwdRate(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary" />
+              <input type="number" value={bwdRate} onChange={(e) => setBwdRate(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary" />
               <span>%</span>
               <span className="font-bold text-lg">= {bwdResult ? `$${bwdResult}` : '?'}</span>
-              <input type="number" value={bwdYears} onChange={(e) => setBwdYears(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded bg-surface-container-low outline-none focus:border-secondary" />
+              <input type="number" value={bwdYears} onChange={(e) => setBwdYears(e.target.value)} className="w-16 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low outline-none focus:border-secondary" />
               <span>years ago</span>
             </div>
             <div className="flex justify-center gap-2 mt-4">
-              <button onClick={calculateBackward} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+              <button onClick={calculateBackward} className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
               </button>
-              <button onClick={() => setBwdResult(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+              <button onClick={() => setBwdResult(null)} className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                 Clear
               </button>
             </div>
@@ -197,9 +197,9 @@ export default function InflationCalculator() {
           <div className="mt-8">
             <h3 className="font-bold text-primary mb-2">Related</h3>
             <div className="flex gap-2">
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Interest Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Loan Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Investment Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Interest Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Loan Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Investment Calculator</button>
             </div>
           </div>
 
@@ -342,11 +342,11 @@ export default function InflationCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>

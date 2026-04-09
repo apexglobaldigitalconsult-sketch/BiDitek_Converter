@@ -62,8 +62,8 @@ export default function CompoundInterestCalculator() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
@@ -82,12 +82,12 @@ export default function CompoundInterestCalculator() {
                   <tr>
                     <td className="p-2">
                       <div className="relative inline-block w-24">
-                        <input type="number" step="0.01" value={inputInterest} onChange={(e) => setInputInterest(e.target.value)} className="w-full pr-6 pl-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary text-right" />
+                        <input type="number" step="0.01" value={inputInterest} onChange={(e) => setInputInterest(e.target.value)} className="w-full pr-6 pl-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary text-right" />
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50">%</span>
                       </div>
                     </td>
                     <td className="p-2">
-                      <select value={inputCompound} onChange={(e) => setInputCompound(e.target.value)} className="w-36 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                      <select value={inputCompound} onChange={(e) => setInputCompound(e.target.value)} className="w-36 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                         {frequencies.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}
                       </select>
                     </td>
@@ -95,7 +95,7 @@ export default function CompoundInterestCalculator() {
                       = <span className="text-[#4caf50]">{outputInterest}</span>
                     </td>
                     <td className="p-2">
-                      <select value={outputCompound} onChange={(e) => setOutputCompound(e.target.value)} className="w-36 px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                      <select value={outputCompound} onChange={(e) => setOutputCompound(e.target.value)} className="w-36 px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                         {frequencies.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}
                       </select>
                     </td>
@@ -104,10 +104,10 @@ export default function CompoundInterestCalculator() {
               </table>
             </div>
             <div className="flex justify-center gap-2 pt-4">
-              <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+              <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
               </button>
-              <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+              <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                 Clear
               </button>
             </div>
@@ -117,9 +117,9 @@ export default function CompoundInterestCalculator() {
           <div className="mt-8">
             <h3 className="font-bold text-primary mb-2">Related</h3>
             <div className="flex flex-wrap gap-2">
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Interest Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Investment Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Auto Loan Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Interest Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Investment Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Auto Loan Calculator</button>
             </div>
           </div>
 
@@ -153,7 +153,7 @@ export default function CompoundInterestCalculator() {
             <h4 className="font-bold text-primary mt-4">Basic compound interest</h4>
             <p>The basic formula for compound interest is as follows:</p>
             <p className="text-center font-mono">A<sub>t</sub> = A<sub>0</sub>(1 + r)<sup>n</sup></p>
-            <div className="bg-surface-container p-4 rounded border border-outline-variant font-mono text-xs">
+            <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant font-mono text-xs">
               where:<br/>
               A<sub>0</sub> : principal amount, or initial investment<br/>
               A<sub>t</sub> : amount after time t<br/>
@@ -164,7 +164,7 @@ export default function CompoundInterestCalculator() {
             <p className="text-center font-mono">A<sub>t</sub> = $1,000 × (1 + 6%)<sup>2</sup> = $1,123.60</p>
             <p>For other compounding frequencies (such as monthly, weekly, or daily), prospective depositors should refer to the formula below.</p>
             <p className="text-center font-mono">A<sub>t</sub> = A<sub>0</sub> × (1 + r/n)<sup>nt</sup></p>
-            <div className="bg-surface-container p-4 rounded border border-outline-variant font-mono text-xs">
+            <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant font-mono text-xs">
               where:<br/>
               A<sub>0</sub> : principal amount, or initial investment<br/>
               A<sub>t</sub> : amount after time t<br/>
@@ -183,7 +183,7 @@ export default function CompoundInterestCalculator() {
             <h4 className="font-bold text-primary mt-4">Continuous compound interest</h4>
             <p>Continuously compounding interest represents the mathematical limit that compound interest can reach within a specified period. The continuous compound equation is represented by the equation below:</p>
             <p className="text-center font-mono">A<sub>t</sub> = A<sub>0</sub>e<sup>rt</sup></p>
-            <div className="bg-surface-container p-4 rounded border border-outline-variant font-mono text-xs">
+            <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant font-mono text-xs">
               where:<br/>
               A<sub>0</sub> : principal amount, or initial investment<br/>
               A<sub>t</sub> : amount after time t<br/>
@@ -213,11 +213,11 @@ export default function CompoundInterestCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>

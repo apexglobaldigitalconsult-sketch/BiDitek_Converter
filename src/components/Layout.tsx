@@ -118,27 +118,24 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen flex flex-col max-w-[1920px] mx-auto bg-background text-primary transition-colors duration-300">
       {/* Top Navigation Bar */}
-      <header className="w-full sticky top-0 z-50 bg-surface-container-low border-b border-outline-variant h-16 flex items-center justify-between px-6 lg:px-8">
+      <header className="w-full sticky top-0 z-50 bg-surface-container-low/80 backdrop-blur-md border-b border-outline-variant h-20 flex items-center justify-between px-6 lg:px-8">
         <div className="flex items-center gap-12">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-secondary p-1.5 rounded-[1px]">
-              <Repeat className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-headline font-extrabold tracking-tight text-primary">
-              BiDitek <span className="text-secondary">Converter</span>
+            <span className="text-2xl font-headline font-extrabold tracking-tight text-primary">
+              BiDitek <span className="text-secondary font-medium">Converter</span>
             </span>
           </Link>
         </div>
 
         <div className="hidden md:flex items-center flex-1 max-w-md mx-8">
-          <div className="w-full flex items-center bg-surface-container px-4 py-2 rounded-[1px] border border-transparent focus-within:bg-surface-container-low focus-within:border-outline-variant transition-all">
+          <div className="w-full flex items-center bg-surface-container px-4 py-3 rounded-[1px] border border-outline-variant focus-within:bg-surface-container-low focus-within:border-secondary/50 focus-within:shadow-[0_0_0_4px_rgba(63,25,156,0.1)] transition-all">
             <Search className="w-4 h-4 text-primary/40" />
             <input 
               type="text" 
               placeholder="Search converters & calculators..." 
               className="bg-transparent border-none focus:ring-0 text-sm w-full font-body placeholder:text-primary/40 ml-2 text-primary"
             />
-            <div className="flex items-center gap-1 px-1.5 py-0.5 bg-surface-container-low border border-outline-variant rounded-[1px] text-[10px] font-bold text-primary/40">
+            <div className="flex items-center gap-1 px-2 py-1 bg-surface-container-low border border-outline-variant rounded-[1px] text-[10px] font-bold text-primary/40">
               <span className="text-[12px]">⌘</span> K
             </div>
           </div>
@@ -146,15 +143,23 @@ export default function Layout({ children }: LayoutProps) {
 
         <div className="flex items-center gap-4 lg:gap-8">
           <nav className="hidden md:flex items-center gap-8">
-            <NavLink to="/converters" className="text-sm font-bold text-primary/60 hover:text-secondary transition-colors">Converters</NavLink>
-            <NavLink to="/calculators" className="text-sm font-bold text-primary/60 hover:text-secondary transition-colors">Calculators</NavLink>
+            <NavLink to="/converters" className="text-sm font-medium text-primary/60 hover:text-secondary transition-colors">Converters</NavLink>
+            <NavLink to="/calculators" className="text-sm font-medium text-primary/60 hover:text-secondary transition-colors">Calculators</NavLink>
           </nav>
-          <button 
-            onClick={toggleTheme}
-            className="p-2 text-primary/40 hover:text-secondary transition-colors"
-          >
-            {theme === 'light' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <button 
+              onClick={toggleTheme}
+              className="p-2.5 rounded-[1px] bg-surface-container border border-outline-variant text-primary/60 hover:text-secondary hover:border-secondary/30 transition-all"
+            >
+              {theme === 'light' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+            <button className="p-2.5 rounded-[1px] bg-surface-container border border-outline-variant text-primary/60 hover:text-secondary hover:border-secondary/30 transition-all">
+              <div className="relative">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-[1px]"></span>
+              </div>
+            </button>
+          </div>
           <button 
             className="md:hidden p-2 text-primary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -166,21 +171,21 @@ export default function Layout({ children }: LayoutProps) {
 
       <div className="flex flex-1 relative">
         {/* Sidebar Navigation */}
-        <aside className="hidden lg:flex flex-col w-64 sticky top-16 h-[calc(100vh-4rem)] bg-surface-container-low border-r border-outline-variant py-6 overflow-y-auto">
-          <div className="px-6 mb-6">
-            <h4 className="text-[10px] font-black text-primary/40 uppercase tracking-[0.2em]">Tools</h4>
+        <aside className="hidden lg:flex flex-col w-72 sticky top-20 h-[calc(100vh-5rem)] bg-surface-container-low border-r border-outline-variant py-8 overflow-y-auto">
+          <div className="px-8 mb-6">
+            <h4 className="text-[11px] font-bold text-primary/40 uppercase tracking-wider">Menu</h4>
           </div>
           
-          <nav className="flex-1 space-y-1">
+          <nav className="flex-1 space-y-2 px-4">
             {/* Converters Section */}
             <div>
               <button 
                 onClick={() => setIsConvertersOpen(!isConvertersOpen)}
-                className="w-full flex items-center justify-between px-6 py-3 text-sm font-bold text-primary/80 hover:bg-surface-container transition-colors group"
+                className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-primary/80 hover:bg-surface-container rounded-[1px] transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="bg-blue-600 p-1 rounded-[1px]">
-                    <Repeat className="w-3 h-3 text-white" />
+                  <div className="p-1.5 rounded-[1px] bg-secondary/10 text-secondary">
+                    <Repeat className="w-4 h-4" />
                   </div>
                   <span>Converters</span>
                 </div>
@@ -200,8 +205,8 @@ export default function Layout({ children }: LayoutProps) {
                         to={item.path}
                         className={({ isActive }) =>
                           cn(
-                            "flex items-center pl-14 py-2.5 text-xs font-medium transition-all relative",
-                            isActive ? "text-secondary font-bold after:absolute after:left-12 after:w-1 after:h-1 after:bg-secondary after:rounded-full" : "text-primary/50 hover:text-secondary"
+                            "flex items-center pl-14 py-2.5 text-sm font-medium transition-all relative rounded-[1px] mx-2 my-1",
+                            isActive ? "bg-secondary/10 text-secondary font-semibold" : "text-primary/60 hover:bg-surface-container hover:text-primary"
                           )
                         }
                       >
@@ -217,11 +222,11 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <button 
                 onClick={() => setIsCalculatorsOpen(!isCalculatorsOpen)}
-                className="w-full flex items-center justify-between px-6 py-3 text-sm font-bold text-primary/80 hover:bg-surface-container transition-colors group"
+                className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-primary/80 hover:bg-surface-container rounded-[1px] transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="bg-orange-600 p-1 rounded-[1px]">
-                    <Calculator className="w-3 h-3 text-white" />
+                  <div className="p-1.5 rounded-[1px] bg-secondary/10 text-secondary">
+                    <Calculator className="w-4 h-4" />
                   </div>
                   <span>Calculators</span>
                 </div>
@@ -236,10 +241,10 @@ export default function Layout({ children }: LayoutProps) {
                     className="overflow-hidden"
                   >
                     {calculatorsCategories.map((category) => (
-                      <div key={category.name} className="mb-1">
+                      <div key={category.name} className="mb-2">
                         <button 
                           onClick={() => toggleCategory(category.name)}
-                          className="w-full flex items-center justify-between pl-14 pr-6 py-2 text-[11px] font-black uppercase tracking-widest text-primary/40 hover:text-primary transition-colors"
+                          className="w-full flex items-center justify-between pl-14 pr-4 py-2 text-[11px] font-bold uppercase tracking-wider text-primary/40 hover:text-primary transition-colors"
                         >
                           {category.name}
                           {openCategories.includes(category.name) ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
@@ -258,8 +263,8 @@ export default function Layout({ children }: LayoutProps) {
                                   to={item.path}
                                   className={({ isActive }) =>
                                     cn(
-                                      "flex items-center pl-16 py-1.5 text-[11px] font-medium transition-all relative",
-                                      isActive ? "text-secondary font-bold after:absolute after:left-14 after:w-1 after:h-1 after:bg-secondary after:rounded-full" : "text-primary/50 hover:text-secondary"
+                                      "flex items-center pl-14 py-2 text-sm font-medium transition-all relative rounded-[1px] mx-2 my-0.5",
+                                      isActive ? "bg-secondary/10 text-secondary font-semibold" : "text-primary/60 hover:bg-surface-container hover:text-primary"
                                     )
                                   }
                                 >
@@ -277,15 +282,9 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </nav>
 
-          <div className="px-6 mt-auto pt-6 border-t border-outline-variant/30 space-y-2">
-            <button className="w-full bg-secondary text-white py-3 rounded-[1px] text-xs font-black uppercase tracking-widest hover:opacity-90 transition-all shadow-lg shadow-secondary/10">
-              Try Pro
-            </button>
-            <button className="w-full flex items-center gap-3 px-4 py-2 text-xs font-bold text-primary/40 hover:text-primary transition-colors">
-              <Monitor className="w-4 h-4" /> Settings
-            </button>
-            <button className="w-full flex items-center gap-3 px-4 py-2 text-xs font-bold text-primary/40 hover:text-primary transition-colors">
-              <FileText className="w-4 h-4" /> Help Center
+          <div className="px-6 mt-auto pt-6 space-y-3">
+            <button className="w-full bg-secondary text-white py-3.5 rounded-[1px] text-sm font-semibold shadow-[0_8px_16px_-6px_rgba(63,25,156,0.4)] hover:shadow-[0_12px_20px_-6px_rgba(63,25,156,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+              Try Pro Version
             </button>
           </div>
         </aside>
@@ -304,6 +303,9 @@ export default function Layout({ children }: LayoutProps) {
                     {link}
                   </a>
                 ))}
+                <Link to="/sitemap" className="text-primary/40 hover:text-secondary transition-colors font-label text-xs underline-offset-4 hover:underline">
+                  Sitemap
+                </Link>
               </div>
               <div className="flex items-center gap-4 text-primary/40">
                 <span className="font-label text-xs font-bold">English (US)</span>

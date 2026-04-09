@@ -103,32 +103,32 @@ export default function AmortizationCalculator() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* Left Column: Inputs */}
             <div className="md:col-span-5">
-              <div className="bg-surface-container p-4 rounded border border-outline-variant">
+              <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant">
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Loan amount</label>
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={loanAmount} onChange={(e) => setLoanAmount(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Loan term</label>
                     <div className="flex gap-1 w-40">
                       <div className="relative w-1/2">
-                        <input type="number" value={loanTermYears} onChange={(e) => setLoanTermYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={loanTermYears} onChange={(e) => setLoanTermYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-xs">years</span>
                       </div>
                       <div className="relative w-1/2">
-                        <input type="number" value={loanTermMonths} onChange={(e) => setLoanTermMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={loanTermMonths} onChange={(e) => setLoanTermMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-1 top-1/2 -translate-y-1/2 text-primary/50 text-xs">months</span>
                       </div>
                     </div>
@@ -136,7 +136,7 @@ export default function AmortizationCalculator() {
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Interest rate</label>
                     <div className="relative w-40">
-                      <input type="number" step="0.01" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.01" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
@@ -147,17 +147,17 @@ export default function AmortizationCalculator() {
                         type="checkbox" 
                         checked={makeExtraPayments}
                         onChange={(e) => setMakeExtraPayments(e.target.checked)}
-                        className="w-4 h-4 text-blue-600 rounded focus:ring-secondary"
+                        className="w-4 h-4 text-blue-600 rounded-[1px] focus:ring-secondary"
                       />
                       <span className="text-primary/90 font-bold">Optional: make extra payments</span>
                     </label>
                   </div>
 
                   <div className="flex justify-center gap-2 pt-4">
-                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                     </button>
-                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                       Clear
                     </button>
                   </div>
@@ -167,7 +167,7 @@ export default function AmortizationCalculator() {
 
             {/* Right Column: Results */}
             <div className="md:col-span-7 space-y-6">
-              <div className="bg-surface-container-low border border-outline-variant rounded-md shadow-sm overflow-hidden">
+              <div className="bg-surface-container-low border border-outline-variant rounded-[1px] shadow-sm overflow-hidden">
                 <div className="bg-[#7cb342] text-white p-3 flex justify-between items-center">
                   <span className="font-bold text-lg">Monthly Pay: <span className="text-xl ml-2">{formatCurrency(results.monthlyPayment)}</span></span>
                   <div className="w-4 h-4 border border-white flex items-center justify-center text-[10px]">💾</div>
@@ -176,11 +176,11 @@ export default function AmortizationCalculator() {
                 <div className="p-4">
                   <div className="flex items-center justify-center gap-6 mb-6">
                     <div className="w-24 h-24 relative">
-                      <div className="w-full h-full rounded-full" style={{
+                      <div className="w-full h-full rounded-[1px]" style={{
                         background: `conic-gradient(#3b82f6 0% ${(results.principal/results.totalPayments)*100}%, #8bc34a ${(results.principal/results.totalPayments)*100}% 100%)`
                       }}></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 bg-surface-container-low rounded-full"></div>
+                        <div className="w-12 h-12 bg-surface-container-low rounded-[1px]"></div>
                       </div>
                       <div className="absolute top-1/2 left-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((results.principal/results.totalPayments)*100)}%</div>
                       <div className="absolute top-1/2 right-2 -translate-y-1/2 text-[10px] font-bold text-white drop-shadow-md">{Math.round((results.totalInterest/results.totalPayments)*100)}%</div>
@@ -191,7 +191,7 @@ export default function AmortizationCalculator() {
                     </div>
                   </div>
 
-                  <div className="space-y-2 text-sm bg-surface-container p-3 rounded">
+                  <div className="space-y-2 text-sm bg-surface-container p-3 rounded-[1px]">
                     <div className="flex justify-between py-1">
                       <span className="text-primary/90">Total of {results.months} monthly payments</span>
                       <span className="text-primary">{formatCurrency(results.totalPayments)}</span>
@@ -310,11 +310,11 @@ export default function AmortizationCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>

@@ -116,35 +116,35 @@ export default function InterestCalculator() {
         {/* Main Content */}
         <div className="lg:col-span-9 space-y-8">
           
-          <div className="bg-secondary text-white p-2 rounded flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
-            <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center text-blue-600 text-xs">▼</div>
+          <div className="bg-secondary text-white p-2 rounded-[1px] flex items-center justify-center gap-2 cursor-pointer text-sm font-bold shadow-sm">
+            <div className="w-4 h-4 bg-white rounded-[1px] flex items-center justify-center text-blue-600 text-xs">▼</div>
             Modify the values and click the Calculate button to use
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             {/* Left Column: Inputs */}
             <div className="md:col-span-5 space-y-4">
-              <div className="bg-surface-container p-4 rounded border border-outline-variant">
+              <div className="bg-surface-container p-4 rounded-[1px] border border-outline-variant">
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Initial investment</label>
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={initialInvestment} onChange={(e) => setInitialInvestment(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={initialInvestment} onChange={(e) => setInitialInvestment(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Annual contribution</label>
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={annualContribution} onChange={(e) => setAnnualContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={annualContribution} onChange={(e) => setAnnualContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Monthly contribution</label>
                     <div className="relative w-40">
                       <span className="absolute left-2 top-1/2 -translate-y-1/2 text-primary/60">$</span>
-                      <input type="number" value={monthlyContribution} onChange={(e) => setMonthlyContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" value={monthlyContribution} onChange={(e) => setMonthlyContribution(e.target.value)} className="w-full pl-6 pr-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                     </div>
                   </div>
                   <div className="flex flex-col items-end gap-1">
@@ -162,13 +162,13 @@ export default function InterestCalculator() {
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Interest rate</label>
                     <div className="relative w-40">
-                      <input type="number" step="0.01" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.01" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Compound</label>
-                    <select value={compound} onChange={(e) => setCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary">
+                    <select value={compound} onChange={(e) => setCompound(e.target.value)} className="w-40 py-1 px-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary">
                       <option>Annually</option>
                       <option>Monthly</option>
                     </select>
@@ -177,11 +177,11 @@ export default function InterestCalculator() {
                     <label className="text-primary/90">Investment length</label>
                     <div className="flex gap-1 w-40">
                       <div className="relative w-1/2">
-                        <input type="number" value={years} onChange={(e) => setYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={years} onChange={(e) => setYears(e.target.value)} className="w-full pr-8 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-xs">years</span>
                       </div>
                       <div className="relative w-1/2">
-                        <input type="number" value={months} onChange={(e) => setMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                        <input type="number" value={months} onChange={(e) => setMonths(e.target.value)} className="w-full pr-10 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                         <span className="absolute right-1 top-1/2 -translate-y-1/2 text-primary/50 text-xs">months</span>
                       </div>
                     </div>
@@ -189,23 +189,23 @@ export default function InterestCalculator() {
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90 flex items-center gap-1">Tax rate <HelpCircle className="w-3 h-3 text-gray-400" /></label>
                     <div className="relative w-40">
-                      <input type="number" step="0.01" value={taxRate} onChange={(e) => setTaxRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.01" value={taxRate} onChange={(e) => setTaxRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
                     <label className="text-primary/90">Inflation rate</label>
                     <div className="relative w-40">
-                      <input type="number" step="0.01" value={inflationRate} onChange={(e) => setInflationRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded bg-surface-container-low text-primary outline-none focus:border-secondary" />
+                      <input type="number" step="0.01" value={inflationRate} onChange={(e) => setInflationRate(e.target.value)} className="w-full pr-6 py-1 pl-2 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary outline-none focus:border-secondary" />
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 text-primary/50 text-sm">%</span>
                     </div>
                   </div>
                   
                   <div className="flex justify-center gap-2 pt-4">
-                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded font-bold flex items-center gap-1 shadow-sm">
-                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-full w-4 h-4 flex items-center justify-center">▶</span>
+                    <button className="bg-[#4caf50] hover:bg-[#45a049] text-white px-4 py-1.5 rounded-[1px] font-bold flex items-center gap-1 shadow-sm">
+                      Calculate <span className="text-xs bg-white text-[#4caf50] rounded-[1px] w-4 h-4 flex items-center justify-center">▶</span>
                     </button>
-                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded font-bold shadow-sm">
+                    <button className="bg-[#9e9e9e] hover:bg-[#8e8e8e] text-white px-4 py-1.5 rounded-[1px] font-bold shadow-sm">
                       Clear
                     </button>
                   </div>
@@ -215,7 +215,7 @@ export default function InterestCalculator() {
 
             {/* Right Column: Results */}
             <div className="md:col-span-7 space-y-6">
-              <div className="bg-surface-container-low border border-outline-variant rounded-md shadow-sm overflow-hidden">
+              <div className="bg-surface-container-low border border-outline-variant rounded-[1px] shadow-sm overflow-hidden">
                 <div className="bg-[#7cb342] text-white p-3 flex justify-between items-center">
                   <span className="font-bold text-lg">Results</span>
                   <div className="w-4 h-4 border border-white flex items-center justify-center text-[10px]">💾</div>
@@ -255,11 +255,11 @@ export default function InterestCalculator() {
 
                   <div className="mt-8 flex items-center justify-center gap-6">
                     <div className="w-24 h-24 relative">
-                      <div className="w-full h-full rounded-full" style={{
+                      <div className="w-full h-full rounded-[1px]" style={{
                         background: `conic-gradient(#3b82f6 0% ${(results.totalPrincipal/results.endingBalance)*100}%, #8bc34a ${(results.totalPrincipal/results.endingBalance)*100}% ${((results.totalPrincipal+results.totalContributions)/results.endingBalance)*100}%, #ef4444 ${((results.totalPrincipal+results.totalContributions)/results.endingBalance)*100}% 100%)`
                       }}></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 bg-surface-container-low rounded-full"></div>
+                        <div className="w-12 h-12 bg-surface-container-low rounded-[1px]"></div>
                       </div>
                     </div>
                     <div className="space-y-1 text-xs">
@@ -326,9 +326,9 @@ export default function InterestCalculator() {
           <div className="mt-8">
             <h3 className="font-bold text-primary mb-2">Related</h3>
             <div className="flex gap-2">
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Investment Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">Average Return Calculator</button>
-              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded text-sm shadow-sm">ROI Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Investment Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">Average Return Calculator</button>
+              <button className="bg-secondary hover:bg-secondary/80 text-white px-4 py-1.5 rounded-[1px] text-sm shadow-sm">ROI Calculator</button>
             </div>
           </div>
 
@@ -364,7 +364,7 @@ export default function InterestCalculator() {
             <p>When the loan ends, the bank collects $121 from Derek instead of $120 if it were calculated using simple interest instead. This is because interest is also earned on interest.</p>
             <p>The more frequently interest is compounded within a time period, the higher the interest will be earned on an original principal. The following is a graph showing just that, a $1,000 investment at various compounding frequencies earning 20% interest.</p>
             
-            <div className="my-6 p-4 bg-surface-container-low border border-outline-variant rounded text-center text-primary/50">
+            <div className="my-6 p-4 bg-surface-container-low border border-outline-variant rounded-[1px] text-center text-primary/50">
               [Graph: Compounding Frequency Comparison]
             </div>
 
@@ -397,11 +397,11 @@ export default function InterestCalculator() {
         {/* Sidebar */}
         <div className="lg:col-span-3 space-y-6">
           <div className="flex gap-2 mb-4">
-            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
-            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded text-sm font-semibold">Search</button>
+            <input type="text" className="w-full px-2 py-1 border border-outline-variant rounded-[1px] bg-surface-container-low text-primary focus:ring-2 focus:ring-secondary outline-none text-sm" />
+            <button className="bg-secondary hover:bg-secondary/80 text-white px-3 py-1 rounded-[1px] text-sm font-semibold">Search</button>
           </div>
 
-          <div className="border border-blue-600 rounded overflow-hidden">
+          <div className="border border-blue-600 rounded-[1px] overflow-hidden">
             <div className="bg-secondary text-white p-2 font-bold text-sm">
               Financial Calculators
             </div>
